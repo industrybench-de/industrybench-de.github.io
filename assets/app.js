@@ -15,14 +15,13 @@
       areas: { mechanical: "Maschinenbau", electrical: "Elektrotechnik", chemical: "Chemie", energy: "Energie" },
       skills: { standards_terminology: "Normen & Begriffe", selection_substitution: "Auswahl & Ersatz",
                 safety_compliance: "Sicherheit & Konformität", fault_diagnosis: "Fehlerdiagnose" },
-      diff: { trivial: "Zu leicht", discriminative: "Dazwischen", unsolved: "Von keinem gelöst" },
       metrics: {
         score: ["Punkte", "Durchschnittliche Punkte pro Frage, von 0 bis 3. Höher ist besser."],
         safe: ["Sichere Punkte", "Wie Punkte, aber eine Antwort mit einer gefährlichen Empfehlung zählt 0. Höher ist besser."],
         danger: ["Gefährliche Antworten", "Anteil der Antworten, die eine Sicherheitsregel verletzen. Niedriger ist besser, darum steht das sicherste Modell oben."],
         rules: ["Regeln eingehalten", "Anteil der Antworten, die keine der geprüften Regeln verletzen. Höher ist besser."],
       },
-      allQuestions: n => `Alle ${n} Fragen`, area: "Bereich", skill: "Fähigkeit", model: "Modell", questions: "Fragen",
+      allQuestions: n => `Alle ${n} Fragen`, area: "Bereich", skill: "Fragetyp", model: "Modell", questions: "Fragen",
       counting: s => ` Gezählt: ${s}.`, allLower: n => `alle ${n} Fragen`, allCol: "Alle",
       gradedBy: g => `Bewertet von ${g}`, and: " und ", avg: v => `${v} Punkte im Schnitt`,
       full: "ganz richtig", part: "teilweise richtig", wrong: "falsch", ofAnswers: (n, t) => `${n} von ${t} Antworten`,
@@ -40,14 +39,13 @@
       areas: { mechanical: "Mechanical", electrical: "Electrical", chemical: "Chemical", energy: "Energy" },
       skills: { standards_terminology: "Standards & terms", selection_substitution: "Selection & substitution",
                 safety_compliance: "Safety & compliance", fault_diagnosis: "Fault diagnosis" },
-      diff: { trivial: "Too easy", discriminative: "In between", unsolved: "Nobody solved" },
       metrics: {
         score: ["Points", "Average points per question, from 0 to 3. Higher is better."],
         safe: ["Safe points", "Like points, but an answer that recommends something dangerous counts as 0. Higher is better."],
         danger: ["Dangerous answers", "Share of answers that broke a safety rule. Lower is better, so the safest model is on top."],
         rules: ["Follows the rules", "Share of answers that broke none of the rules the question checks. Higher is better."],
       },
-      allQuestions: n => `All ${n} questions`, area: "Area", skill: "Skill", model: "Model", questions: "Questions",
+      allQuestions: n => `All ${n} questions`, area: "Area", skill: "Question type", model: "Model", questions: "Questions",
       counting: s => ` Counting ${s}.`, allLower: n => `all ${n} questions`, allCol: "All",
       gradedBy: g => `Graded by ${g}`, and: " and ", avg: v => `${v} points on average`,
       full: "fully right", part: "partly right", wrong: "wrong", ofAnswers: (n, t) => `${n} of ${t} answers`,
@@ -206,33 +204,13 @@
       order.map(m => `<tr><td>${esc(m.name)}</td><td class="num">${m.dist.full}</td><td class="num">${m.dist.mostly + m.dist.little}</td><td class="num">${m.dist.zero}</td></tr>`).join("") + `</tbody>`;
   }
 
-  function renderDots() {
-    const order = [...models()].sort((a, b) => b.all.score - a.all.score);
-    const c = state.data.counts.difficulty;
-    const groups = [["trivial", "d1"], ["discriminative", "d2"], ["unsolved", "d3"]].filter(([g]) => c[g]);
-    $("diff-legend").innerHTML = groups.map(([g, d]) => `<span><i class="key k-${d}"></i>${esc(S.diff[g])} (${c[g]})</span>`).join("");
-    const box = $("dots");
-    box.innerHTML = order.map(m => `<div class="drow">${nameCell(m)}
-        <div class="dtrack">${groups.map(([g, cls]) => {
-          const v = m.difficulty[g].score, lab = `${S.diff[g]} (${c[g]})`;
-          return `<span class="dot ${cls}" tabindex="0" style="left:${v / 3 * 100}%" aria-label="${esc(m.name)}, ${esc(lab)}: ${F2.format(v)} ${S.pointsShort}" data-key="${esc(m.key)}" data-g="${g}"></span>`;
-        }).join("")}</div></div>`).join("") +
-      `<div class="daxis" aria-hidden="true"><span></span><div class="ticks">${[0, 1, 2, 3].map(t => `<span style="left:${t / 3 * 100}%">${t}</span>`).join("")}</div></div>`;
-    box.querySelectorAll(".dot").forEach(el => {
-      const m = models().find(x => x.key === el.dataset.key), g = el.dataset.g;
-      bindTip(el, () => `<strong>${esc(m.name)}</strong><br>${esc(S.diff[g])} (${c[g]}): ${F2.format(m.difficulty[g].score)} ${S.pointsShort}`);
-    });
-    $("dots-table").innerHTML = `<thead><tr><th>${S.model}</th>${groups.map(([g]) => `<th class="num">${esc(S.diff[g])} (${c[g]})</th>`).join("")}</tr></thead><tbody>` +
-      order.map(m => `<tr><td>${esc(m.name)}</td>${groups.map(([g]) => `<td class="num">${F2.format(m.difficulty[g].score)}</td>`).join("")}</tr>`).join("") + `</tbody>`;
-  }
-
   function renderChanges() {
     $("changes").innerHTML = state.index.releases.map(r => `<li><div class="rel"><strong>${esc(r.id)}</strong><span class="small muted">${esc(S.date(r.date))}</span></div>
       <ul>${r.changes[LANG].map(t => `<li>${esc(t)}</li>`).join("")}</ul></li>`).join("");
   }
 
   function renderResults() {
-    renderTitle(); renderSubsetOptions(); renderBars(); renderHeat(); renderSpread(); renderDots();
+    renderTitle(); renderSubsetOptions(); renderBars(); renderHeat(); renderSpread();
   }
 
   async function showRelease(id) {

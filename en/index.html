@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>IndustryBench-DE Live · Results</title>
-<meta name="description" content="How well do AI models know German industrial and safety rules? Results of IndustryBench-DE Live: open questions on mechanical, electrical, chemical and energy topics.">
+<meta name="description" content="How well do AI models know German industrial and safety rules? IndustryBench-DE tests knowledge, correct application and unsafe advice in mechanical, electrical, chemical and energy engineering.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="de" href="../">
 <link rel="stylesheet" href="../assets/site.css">
@@ -24,14 +24,31 @@
   <div class="main">
     <span class="label" id="tb-release">Release 2026-11 · Batch 1</span>
     <h1>How well do AI models know German industrial and safety rules?</h1>
-    <p class="lead">Open questions in German about machines, electricity, chemicals and energy. The models answer without any documents. Each answer gets 0 to 3 points, and dangerous recommendations are counted separately. New questions are added every three months.</p>
+    <p class="lead"><strong>This is what IndustryBench-DE measures:</strong> an exam for AI models with questions from everyday industrial work in Germany, in mechanical, electrical, chemical and energy engineering.</p>
+    <p><strong>Why?</strong> More and more engineers and technicians ask AI assistants for advice. A wrong answer can be costly or dangerous there, for example when an AI approves a device for a room with explosive gas where it must not be used. So the benchmark shows three things: how much the models know about German and European industrial rules, whether they apply these rules correctly to a concrete case, and how often they recommend something unsafe.</p>
   </div>
   <div><span class="label">Questions</span><span class="val" id="tb-questions">228</span></div>
   <div><span class="label">Models tested</span><span class="val" id="tb-models">7</span></div>
-  <div><span class="label">Areas × skills</span><span class="val">4 × 4</span></div>
+  <div><span class="label">Areas × question types</span><span class="val">4 × 4</span></div>
   <div><span class="label">Best score</span><span class="val" id="tb-best">2.43 / 3</span></div>
   <div><span class="label">Next release</span><span class="val" id="tb-next">February 2027</span></div>
 </header>
+
+<section aria-labelledby="h-types">
+  <div class="sec-head"><span class="label">Question types</span><h2 id="h-types">Four kinds of question</h2>
+    <p>Every question describes a situation from practice and belongs to one of four types. Each type appears in all four areas.</p></div>
+  <ul class="types">
+    <li><h3>Standards &amp; terms</h3><p class="small">What does a marking, a class or a limit value mean, and what follows from it in a concrete case?</p>
+      <p class="eg"><span class="label">For example</span>What does the rating plate mean for the planned use?</p></li>
+    <li><h3>Selection &amp; substitution</h3><p class="small">Which product, variant or material suits the operating conditions? May one part be replaced by another?</p>
+      <p class="eg"><span class="label">For example</span>Which of two motors meets the EU energy-efficiency rules?</p></li>
+    <li><h3>Safety &amp; compliance</h3><p class="small">Is a rule being broken? Which duty, inspection or protective measure applies?</p>
+      <p class="eg"><span class="label">For example</span>Is this pump allowed in a room where gas could explode?</p></li>
+    <li><h3>Fault diagnosis</h3><p class="small">What is the most likely cause of a fault, and how is it fixed safely?</p>
+      <p class="eg"><span class="label">For example</span>The alarm goes off but the display looks normal. What is wrong?</p></li>
+  </ul>
+  <p class="small muted">The examples only show the kind of question. The real questions stay private so they do not end up in AI training data. <a href="report.html#h-build">How a question is built</a></p>
+</section>
 
 <section aria-labelledby="h-scores">
   <div class="sec-head"><span class="label">Results</span><h2 id="h-scores">The leaderboard</h2>
@@ -59,12 +76,12 @@
 
 <section aria-labelledby="h-map">
   <div class="sec-head"><span class="label">Detail</span><h2 id="h-map">Strong and weak spots</h2>
-    <p>Average points (0 to 3) for each model in each area or skill. The stronger the blue, the more points.</p></div>
+    <p>Average points (0 to 3) for each model in each area or question type. The stronger the blue, the more points.</p></div>
   <div class="controls">
     <div class="ctl"><span class="label" id="lbl-split">Split by</span>
       <div class="seg-ctl" role="group" aria-labelledby="lbl-split" id="split">
         <button type="button" id="s-domain" data-s="domain" aria-pressed="true">Area</button>
-        <button type="button" id="s-capability" data-s="capability" aria-pressed="false">Skill</button>
+        <button type="button" id="s-capability" data-s="capability" aria-pressed="false">Question type</button>
       </div></div>
     <div class="ramp" aria-hidden="true"><span>0</span><i></i><span>3 points</span></div>
   </div>
@@ -77,14 +94,6 @@
   <div class="legend"><span><i class="key k-ok"></i>Fully right (3 points)</span><span><i class="key k-part"></i>Partly right (0.5 to 2.5)</span><span><i class="key k-bad"></i>Wrong (0 points)</span></div>
   <div class="chart" id="spread" data-needs-data></div>
   <details class="tv"><summary>Show as a table</summary><div class="scroll"><table id="spread-table"></table></div></details>
-</section>
-
-<section aria-labelledby="h-diff">
-  <div class="sec-head"><span class="label">Detail</span><h2 id="h-diff">Easy and hard questions</h2>
-    <p>Before the test, three models (Claude Sonnet, Gemini, DeepSeek) answered every question. <em>Too easy</em>: all three got full marks. <em>Nobody solved</em>: all three scored below 2. Everything else is <em>in between</em>. The dots show how each model does in each group. For these three models the ends are fixed: 3 points on "too easy" and close to 0 on "nobody solved".</p></div>
-  <div class="legend" id="diff-legend"></div>
-  <div class="chart" id="dots" data-needs-data></div>
-  <details class="tv"><summary>Show as a table</summary><div class="scroll"><table id="dots-table"></table></div></details>
 </section>
 
 <section aria-labelledby="h-changes">
