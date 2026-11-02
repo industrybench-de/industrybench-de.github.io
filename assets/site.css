@@ -220,7 +220,7 @@ mark { color: inherit; background: transparent; padding: 0 .12em; border-radius:
 .ex:not([data-off~="law"]) mark.m-law { background: var(--law-soft); box-shadow: inset 0 -2px 0 var(--law); }
 .ex:not([data-off~="trap"]) mark.m-trap { background: var(--trap-soft); box-shadow: inset 0 -2px 0 var(--sign-yellow); }
 .facts { list-style: none; display: grid; gap: 8px; }
-.facts li { display: grid; grid-template-columns: 3.6rem minmax(0, 1fr); gap: 8px; align-items: baseline; }
+.facts li { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr); gap: 8px; align-items: baseline; }
 .facts .tag { justify-self: start; }
 .quote { border-left: 4px solid var(--law); background: var(--paper); padding: 10px 12px; display: grid; gap: 8px; min-width: 0; }
 .quote p { font-family: var(--f-mono); font-size: .82rem; line-height: 1.5; }
