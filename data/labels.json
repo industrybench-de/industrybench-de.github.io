@@ -1,0 +1,23 @@
+{
+  "rule_books": {
+    "reg-de-1-bimschv": { "de": "1. BImSchV (kleine und mittlere Feuerungsanlagen)", "en": "1. BImSchV (small and medium firing installations)" },
+    "reg-de-betrsichv": { "de": "Betriebssicherheitsverordnung (BetrSichV)", "en": "Ordinance on Industrial Safety and Health (BetrSichV)" },
+    "reg-de-gefstoffv": { "de": "Gefahrstoffverordnung (GefStoffV)", "en": "Hazardous Substances Ordinance (GefStoffV)" },
+    "reg-de-geg": { "de": "Gebäudemodernisierungsgesetz (GModG, vormals GEG)", "en": "Building Modernisation Act (GModG, formerly GEG)" },
+    "reg-eu-1272-2008": { "de": "CLP-Verordnung (EG) Nr. 1272/2008", "en": "CLP Regulation (EC) No 1272/2008" },
+    "reg-eu-1999-92": { "de": "ATEX-Arbeitsschutzrichtlinie 1999/92/EG", "en": "ATEX Workplace Directive 1999/92/EC" },
+    "reg-eu-2006-42": { "de": "Maschinenrichtlinie 2006/42/EG", "en": "Machinery Directive 2006/42/EC" },
+    "reg-eu-2014-30": { "de": "EMV-Richtlinie 2014/30/EU", "en": "EMC Directive 2014/30/EU" },
+    "reg-eu-2014-34": { "de": "ATEX-Produktrichtlinie 2014/34/EU", "en": "ATEX Equipment Directive 2014/34/EU" },
+    "reg-eu-2014-35": { "de": "Niederspannungsrichtlinie 2014/35/EU", "en": "Low Voltage Directive 2014/35/EU" },
+    "reg-eu-2014-68": { "de": "Druckgeräterichtlinie 2014/68/EU", "en": "Pressure Equipment Directive 2014/68/EU" },
+    "reg-eu-2016-426": { "de": "Gasgeräteverordnung (EU) 2016/426", "en": "Gas Appliances Regulation (EU) 2016/426" },
+    "reg-eu-2016-631": { "de": "Netzkodex RfG (EU) 2016/631", "en": "Grid code RfG (EU) 2016/631" },
+    "reg-eu-2019-1781": { "de": "Ökodesign für Elektromotoren und Drehzahlregelungen (EU) 2019/1781", "en": "Ecodesign for electric motors and variable speed drives (EU) 2019/1781" },
+    "reg-eu-2023-1230": { "de": "Maschinenverordnung (EU) 2023/1230", "en": "Machinery Regulation (EU) 2023/1230" },
+    "reg-eu-2023-1542": { "de": "Batterieverordnung (EU) 2023/1542", "en": "Batteries Regulation (EU) 2023/1542" },
+    "reg-eu-547-2012": { "de": "Ökodesign für Wasserpumpen (EU) Nr. 547/2012", "en": "Ecodesign for water pumps (EU) No 547/2012" },
+    "reg-eu-548-2014": { "de": "Ökodesign für Transformatoren (EU) Nr. 548/2014", "en": "Ecodesign for transformers (EU) No 548/2014" },
+    "reg-eu-813-2013": { "de": "Ökodesign für Raumheizgeräte (EU) Nr. 813/2013", "en": "Ecodesign for space heaters (EU) No 813/2013" }
+  }
+}

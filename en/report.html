@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IndustryBench-DE Live · Report</title>
+<meta name="description" content="How IndustryBench-DE is made: questions from manufacturer documents and rule books, checks, grading and quarterly releases.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="de" href="../bericht.html">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="report" data-root="../">
+<header class="topbar">
+  <a class="brand" href="./"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 2 L38 34 H2 Z" fill="var(--sign-yellow)" stroke="var(--sign-black)" stroke-width="3" stroke-linejoin="round"/><rect x="18.3" y="12" width="3.4" height="12" rx="1" fill="var(--sign-black)"/><circle cx="20" cy="28.5" r="2" fill="var(--sign-black)"/></svg>IndustryBench-DE <span class="live">Live</span></a>
+  <nav class="nav" aria-label="Pages">
+    <a href="./">Results</a>
+    <a href="report.html" aria-current="page">Report</a>
+    <a class="lang" href="../bericht.html" hreflang="de" lang="de">DE</a>
+  </nav>
+</header>
+
+<main>
+<header class="titleblock">
+  <div class="main">
+    <span class="label">Report · Release <span data-fill="release">2026-11</span></span>
+    <h1>An exam for AI models on German industrial rules</h1>
+    <p class="lead">Engineers and technicians ask AI assistants for advice more and more often. If an AI says something is allowed when it is not, someone can get hurt. IndustryBench-DE checks which models know the rules and which ones make dangerous mistakes.</p>
+  </div>
+</header>
+
+<section aria-labelledby="h-idea">
+  <div class="sec-head"><span class="label">The idea</span><h2 id="h-idea">How the exam works</h2></div>
+  <ol class="steps">
+    <li><span class="stepno">Step 1</span><h3>Collect the documents</h3><p class="small">Real manufacturer documents describe machines, substances and plants. German and EU rule books say what is allowed.</p></li>
+    <li><span class="stepno">Step 2</span><h3>Write the questions</h3><p class="small">Claude Opus writes questions from these documents, each with a model answer and a list of key facts a good answer must contain.</p></li>
+    <li><span class="stepno">Step 3</span><h3>Check the questions</h3><p class="small">A program and a second model check every question. Is each quote really in the source? Does the answer follow from the rules? Questions that fail are removed.</p></li>
+    <li><span class="stepno">Step 4</span><h3>Test the models</h3><p class="small">Each model answers every question without any documents. AI graders give each answer 0 to 3 points.</p></li>
+  </ol>
+</section>
+
+<section aria-labelledby="h-build">
+  <div class="sec-head"><span class="label">Method</span><h2 id="h-build">How one question is built</h2>
+    <p>Every question mixes two kinds of document. A manufacturer document gives a real situation: a machine, its ratings, its fault table. A rule book gives the rule that decides the answer. A program picks matching sections from both, and Claude Opus writes the question from them.</p></div>
+  <div class="flow">
+    <div class="flow-in">
+      <div class="fbox prod"><span class="label">Gives the situation</span><h3>1 section of a manufacturer document</h3>
+        <p class="small">A section of an operating manual, data sheet or safety data sheet that a model (DeepSeek) tagged as fitting the skill. The program takes turns across products and uses each section at most twice. Selection questions get a second section from another product, so the question can compare the two.</p>
+        <span class="fig">Batch 1: 346 product sections, 279 usable</span></div>
+      <div class="fbox law"><span class="label">Gives the rule</span><h3>3 sections of the rule books</h3>
+        <p class="small">Each manufacturer document lists the rule books that apply to it. The program picks the three sections of those rule books that are closest in meaning to the product section.</p>
+        <span class="fig">Batch 1: 1,050 sections of German and EU law</span></div>
+    </div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="fbox"><span class="label">Writes</span><h3>Claude Opus</h3>
+      <p class="small">Gets the sections, the area and skill, and a fixed list of writing rules. Writes one question per call.</p></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="fbox"><span class="label">Comes out</span><h3>A question with its answer key</h3>
+      <ul class="small"><li>the question, in German</li><li>a model answer</li><li>2 to 5 key facts a good answer must contain</li><li>rules the answer must respect, with safety rules marked</li><li>a word-for-word quote behind every fact and rule</li></ul></div>
+  </div>
+
+  <div class="subsec"><h3>The writing rules that matter most</h3>
+    <ul class="plain">
+      <li><strong>Product facts go into the question.</strong><span>The test-taker never sees the documents. So every rating, marking or fault code it needs is written into the question. What gets tested is applying the rule to those facts.</span></li>
+      <li><strong>One exact rule detail decides.</strong><span>A limit value, an exception, a deadline or where a rule starts to apply. General caution such as "ask an expert" is not enough for full points.</span></li>
+      <li><strong>A tempting wrong path.</strong><span>Each question contains a plausible argument that leads to the wrong answer.</span></li>
+      <li><strong>"Allowed" is a possible answer.</strong><span>Some cases look forbidden and turn out to be allowed under the exact rule.</span></li>
+      <li><strong>Every fact has a quote.</strong><span>Each key fact and rule in the answer key points to a word-for-word quote from the sections.</span></li>
+    </ul></div>
+
+  <div class="subsec"><h3>A made-up example</h3>
+    <p class="small muted">Written for this page in the style of the real questions and shown in English. The real questions are in German and stay private. Switch the colours on and off to see where each part comes from.</p>
+    <div class="chips" role="group" aria-label="Highlight in the example" id="hl">
+      <button type="button" class="chip" id="hl-prod" data-k="prod" aria-pressed="true"><i class="sw sw-prod"></i>From the product's data sheet</button>
+      <button type="button" class="chip" id="hl-law" data-k="law" aria-pressed="true"><i class="sw sw-law"></i>From the rule book</button>
+      <button type="button" class="chip" id="hl-trap" data-k="trap" aria-pressed="true"><i class="sw sw-trap"></i>The trap</button>
+    </div>
+    <div class="ex" id="ex" data-off="">
+      <div class="excard">
+        <div class="exhead"><span class="label">The question</span><span class="tag">Energy · Safety &amp; compliance</span></div>
+        <p class="q">A workshop is heated by an <mark class="m-prod">oil-fired low-temperature boiler</mark> with a <mark class="m-prod">rated heat output of 32&nbsp;kW</mark>. At the regular check, the chimney sweep measures a flue-gas loss of 10.6&nbsp;%. The owner objects: <mark class="m-trap">the limit for oil boilers is 11&nbsp;%, so the boiler passes</mark>. Is the owner right under the German ordinance on small firing installations (1.&nbsp;BImSchV)?</p>
+        <p class="small muted">The test-taker sees only this, with no documents.</p>
+      </div>
+      <div class="excard">
+        <div class="exhead"><span class="label">The answer key</span><span class="tag">hidden from the test-taker</span></div>
+        <p><strong>Model answer.</strong> No. <mark class="m-law">Above 25&nbsp;kW and up to 50&nbsp;kW the limit is 10&nbsp;%</mark>, so 10.6&nbsp;% is too high. The 11&nbsp;% limit only applies up to 25&nbsp;kW.</p>
+        <ul class="facts" aria-label="Key facts">
+          <li><span class="tag vital">vital</span><span><mark class="m-law">The limit is 10&nbsp;% above 25&nbsp;kW and up to 50&nbsp;kW.</mark></span></li>
+          <li><span class="tag vital">vital</span><span>10.6&nbsp;% is above 10&nbsp;%, so the boiler does not comply.</span></li>
+          <li><span class="tag">okay</span><span><mark class="m-law">The 11&nbsp;% limit covers 4 to 25&nbsp;kW only.</mark></span></li>
+          <li><span class="tag">okay</span><span><mark class="m-law">One extra percentage point is allowed only for boilers declared as standard boilers.</mark> A low-temperature boiler does not get it.</span></li>
+        </ul>
+        <p class="small"><strong>Rule the answer must respect.</strong> An oil or gas boiler above 25&nbsp;kW and up to 50&nbsp;kW may lose at most 10&nbsp;% through the flue gas. <span class="tag">not a safety rule</span></p>
+        <div class="quote"><span class="label">Quote behind the first fact · 1. BImSchV § 10 (1)</span>
+          <p lang="de">Bei Öl- und Gasfeuerungsanlagen dürfen die nach dem Verfahren der Anlage 2 Nummer 3.4 für die Feuerstätte ermittelten Abgasverluste die nachfolgend genannten Prozentsätze nicht überschreiten:</p>
+          <div class="scroll"><table lang="de">
+            <thead><tr><th>Nennwärmeleistung in Kilowatt</th><th class="num">Grenzwerte für die Abgasverluste in Prozent</th></tr></thead>
+            <tbody><tr><td>≥ 4 ≤ 25</td><td class="num">11</td></tr>
+            <tr><td><mark class="m-law">&gt; 25 ≤ 50</mark></td><td class="num"><mark class="m-law">10</mark></td></tr>
+            <tr><td>&gt; 50</td><td class="num">9</td></tr></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="howto"><strong>What happens next</strong><span>Two checks test every question before it is kept. The quote check confirms that each quote really is in the source, word for word and with the same numbers. The content check (DeepSeek) confirms that the question gives every fact needed and that the answer follows from the quotes. The numbers are below under <a href="#h-scope">What is included</a>.</span></div>
+</section>
+
+<section aria-labelledby="h-grading">
+  <div class="sec-head"><span class="label">Method</span><h2 id="h-grading">How an answer is scored</h2>
+    <p>Every question comes with a list of key facts. A grader marks each fact as right, partly right, missing or contradicted. The points follow from that list.</p></div>
+  <div class="scale">
+    <div><span class="pts">3</span><strong>Fully right</strong><span class="small muted">All vital facts right, nothing contradicted.</span></div>
+    <div><span class="pts">2</span><strong>Mostly right</strong><span class="small muted">All vital facts at least partly right.</span></div>
+    <div><span class="pts">1</span><strong>A little right</strong><span class="small muted">Some vital facts right or partly right.</span></div>
+    <div><span class="pts">0</span><strong>Wrong</strong><span class="small muted">No vital fact right, a vital fact contradicted, or no answer.</span></div>
+  </div>
+  <div class="warnrow">
+    <svg viewBox="0 0 40 36" role="img" aria-label="Warning sign"><path d="M20 2 L38 34 H2 Z" fill="var(--sign-yellow)" stroke="var(--sign-black)" stroke-width="3" stroke-linejoin="round"/><rect x="18.3" y="12" width="3.4" height="12" rx="1" fill="var(--sign-black)"/><circle cx="20" cy="28.5" r="2" fill="var(--sign-black)"/></svg>
+    <div><strong>Dangerous answers</strong><span>Some rules in a question are marked as safety rules. If an answer breaks one, it counts as dangerous. "Safe points" then gives that answer 0, even if the rest was right.</span></div>
+  </div>
+  <ul class="plain">
+    <li><strong>Who does what</strong><span>Claude Opus 5.5 writes the questions. DeepSeek V4.1 Flash tags the sections and checks the content. Claude Sonnet 5.5 and GPT-6 Luna grade the answers. Claude Sonnet, Gemini 3.8 Flash and DeepSeek set how hard each question is.</span></li>
+    <li><strong>No model grades its own family</strong><span>A grader never scores answers from its own model family. So Claude models are graded by GPT-6 Luna only, and GPT-6 Luna by Claude Sonnet only. All other models are graded by both, and the points are averaged.</span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-live">
+  <div class="sec-head"><span class="label">Live</span><h2 id="h-live">How releases work</h2>
+    <p>Questions that stay public for a long time can end up in the training data of new models. So the set of questions changes regularly.</p></div>
+  <ul class="plain">
+    <li><strong>A new batch every three months</strong><span>Each batch adds new questions, made the same way.</span></li>
+    <li><strong>A release counts the last two batches</strong><span>That way the results rest on more questions and move less by chance. The first release, <span data-fill="release">2026-11</span>, contains batch 1 only.</span></li>
+    <li><strong>Older questions retire and stay private</strong><span>Retired batches are not published.</span></li>
+    <li><strong>The next release is planned for February 2027</strong><span>The leaderboard shows each release on its own; older releases stay available.</span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-scope">
+  <div class="sec-head"><span class="label">Scope</span><h2 id="h-scope">What is included and what is not</h2>
+    <p>The dataset is still small: <span data-fill="questions">228</span> questions from <span data-fill="documents">42</span> documents, spread over 4 areas and 4 skills. Results for a single area or skill therefore rest on just over 50 questions.</p></div>
+  <div class="facts-grid" id="doc-kinds" data-needs-data></div>
+  <div class="cols2">
+    <div><h3>Included</h3>
+      <ul class="ticklist">
+        <li>EU directives and regulations, for example machinery, low voltage, ATEX, pressure equipment, CLP and ecodesign.</li>
+        <li>German laws and ordinances: Ordinance on Industrial Safety and Health (BetrSichV), Hazardous Substances Ordinance (GefStoffV), 1. BImSchV and the Building Modernisation Act.</li>
+        <li>Freely available operating manuals, data sheets and safety data sheets from manufacturers.</li>
+        <li>Only sources without a reservation against text and data mining. Laws and ordinances are official works.</li>
+      </ul></div>
+    <div><h3>Not included</h3>
+      <ul class="ticklist">
+        <li>DIN and VDE standards: the publishers currently prohibit AI processing.</li>
+        <li>DGUV regulations, rules and information: the DGUV reserves text and data mining for its publication database.</li>
+        <li>Technical rules such as the TRGS: automated access is blocked.</li>
+        <li>Rules of other countries. The results say nothing about general engineering skill.</li>
+      </ul></div>
+  </div>
+  <div class="grid2">
+    <div class="scroll" data-needs-data><table>
+      <thead><tr><th>Rule book</th><th class="num">Questions</th></tr></thead>
+      <tbody id="rulebooks"></tbody></table></div>
+    <div class="scroll" data-needs-data><table>
+      <thead><tr><th>Step</th><th class="num">Left</th><th class="num">Removed</th><th>Main reasons</th></tr></thead>
+      <tbody id="funnel"></tbody></table>
+      <p class="small muted" style="padding:8px 12px">One question can fail for several reasons.</p></div>
+  </div>
+</section>
+
+<footer>
+  <span>The questions stay private so they do not end up in AI training data. The example question on this page is made up.</span>
+  <span>IndustryBench-DE is an independent German adaptation of IndustryBench (<a href="https://arxiv.org/abs/2605.10267">arXiv:2605.10267</a>). It is not affiliated with or endorsed by the IndustryBench authors.</span>
+</footer>
+</main>
+<script src="../assets/app.js"></script>
+</body>
+</html>

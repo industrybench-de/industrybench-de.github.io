@@ -1,0 +1,22 @@
+{
+  "latest": "2026-11",
+  "next": { "de": "Februar 2027", "en": "February 2027" },
+  "releases": [
+    {
+      "id": "2026-11",
+      "date": "2026-11-02",
+      "file": "data/2026-11.json",
+      "batches": [1],
+      "changes": {
+        "de": [
+          "Erste Release mit Batch 1: 228 Fragen in 4 Bereichen und 4 Fähigkeiten.",
+          "7 Modelle getestet: Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Gemini 3.8 Flash, GPT-6 Luna, DeepSeek V4.1 Flash und MiniMax M3.1 Flash."
+        ],
+        "en": [
+          "First release with batch 1: 228 questions across 4 areas and 4 skills.",
+          "7 models tested: Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Gemini 3.8 Flash, GPT-6 Luna, DeepSeek V4.1 Flash and MiniMax M3.1 Flash."
+        ]
+      }
+    }
+  ]
+}

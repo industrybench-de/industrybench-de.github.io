@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IndustryBench-DE Live · Ergebnisse</title>
+<meta name="description" content="Wie gut kennen KI-Modelle deutsche Industrie- und Sicherheitsregeln? Ergebnisse von IndustryBench-DE Live: offene Fragen zu Maschinenbau, Elektrotechnik, Chemie und Energie.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="en/">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="results" data-root="">
+<header class="topbar">
+  <a class="brand" href="./"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M20 2 L38 34 H2 Z" fill="var(--sign-yellow)" stroke="var(--sign-black)" stroke-width="3" stroke-linejoin="round"/><rect x="18.3" y="12" width="3.4" height="12" rx="1" fill="var(--sign-black)"/><circle cx="20" cy="28.5" r="2" fill="var(--sign-black)"/></svg>IndustryBench-DE <span class="live">Live</span></a>
+  <nav class="nav" aria-label="Seiten">
+    <a href="./" aria-current="page">Ergebnisse</a>
+    <a href="bericht.html">Bericht</a>
+    <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
+  </nav>
+</header>
+
+<main>
+<header class="titleblock">
+  <div class="main">
+    <span class="label" id="tb-release">Release 2026-11 · Batch 1</span>
+    <h1>Wie gut kennen KI-Modelle deutsche Industrie- und Sicherheitsregeln?</h1>
+    <p class="lead">Offene Fragen auf Deutsch zu Maschinenbau, Elektrotechnik, Chemie und Energie. Die Modelle antworten ohne Unterlagen. Jede Antwort bekommt 0 bis 3 Punkte, und gefährliche Empfehlungen werden gesondert gezählt. Alle drei Monate kommen neue Fragen dazu.</p>
+  </div>
+  <div><span class="label">Fragen</span><span class="val" id="tb-questions">228</span></div>
+  <div><span class="label">Getestete Modelle</span><span class="val" id="tb-models">7</span></div>
+  <div><span class="label">Bereiche × Fähigkeiten</span><span class="val">4 × 4</span></div>
+  <div><span class="label">Beste Punktzahl</span><span class="val" id="tb-best">2,43 / 3</span></div>
+  <div><span class="label">Nächste Release</span><span class="val" id="tb-next">Februar 2027</span></div>
+</header>
+
+<section aria-labelledby="h-scores">
+  <div class="sec-head"><span class="label">Ergebnisse</span><h2 id="h-scores">Die Rangliste</h2>
+    <p>Oben lässt sich auswählen, was verglichen wird und welche Fragen zählen. Ein Modell antippen oder darauf zeigen, um alle Werte zu sehen.</p></div>
+  <div class="controls">
+    <div class="ctl"><label class="label" for="release">Release</label>
+      <select id="release"><option>2026-11 · Batch 1</option></select></div>
+    <div class="ctl"><span class="label" id="lbl-metric">Vergleichen nach</span>
+      <div class="seg-ctl" role="group" aria-labelledby="lbl-metric" id="metric">
+        <button type="button" id="m-score" data-m="score" aria-pressed="true">Punkte</button>
+        <button type="button" id="m-safe" data-m="safe" aria-pressed="false">Sichere Punkte</button>
+        <button type="button" id="m-danger" data-m="danger" aria-pressed="false">Gefährliche Antworten</button>
+        <button type="button" id="m-rules" data-m="rules" aria-pressed="false">Regeln eingehalten</button>
+      </div></div>
+    <div class="ctl"><label class="label" for="subset">Fragen</label>
+      <select id="subset"><option value="all">Alle Fragen</option></select></div>
+  </div>
+  <div class="howto" aria-live="polite"><strong id="metric-title">Punkte: </strong><span id="metric-note">Durchschnittliche Punkte pro Frage, von 0 bis 3. Höher ist besser.</span></div>
+  <div class="chart" data-needs-data>
+    <div id="bars" role="list" aria-label="Modelle nach Rang"></div>
+    <div class="axis" aria-hidden="true"><span></span><div class="ticks" id="ticks"></div><span></span></div>
+  </div>
+  <details class="tv"><summary>Als Tabelle anzeigen</summary><div class="scroll"><table id="bars-table"></table></div></details>
+</section>
+
+<section aria-labelledby="h-map">
+  <div class="sec-head"><span class="label">Im Detail</span><h2 id="h-map">Stärken und Schwächen</h2>
+    <p>Durchschnittliche Punkte (0 bis 3) jedes Modells je Bereich oder Fähigkeit. Je kräftiger das Blau, desto mehr Punkte.</p></div>
+  <div class="controls">
+    <div class="ctl"><span class="label" id="lbl-split">Aufteilen nach</span>
+      <div class="seg-ctl" role="group" aria-labelledby="lbl-split" id="split">
+        <button type="button" id="s-domain" data-s="domain" aria-pressed="true">Bereich</button>
+        <button type="button" id="s-capability" data-s="capability" aria-pressed="false">Fähigkeit</button>
+      </div></div>
+    <div class="ramp" aria-hidden="true"><span>0</span><i></i><span>3 Punkte</span></div>
+  </div>
+  <div class="scroll" data-needs-data><table class="heat" id="heat"></table></div>
+</section>
+
+<section aria-labelledby="h-spread">
+  <div class="sec-head"><span class="label">Im Detail</span><h2 id="h-spread">Wie oft die Antwort ganz richtig war</h2>
+    <p>Jeder Balken zeigt alle Antworten eines Modells. Ganz richtig heißt: alle Kernaussagen stimmen, nichts widerspricht ihnen. Falsch heißt: keine Kernaussage stimmt, oder die Antwort widerspricht einer.</p></div>
+  <div class="legend"><span><i class="key k-ok"></i>Ganz richtig (3 Punkte)</span><span><i class="key k-part"></i>Teilweise richtig (0,5 bis 2,5)</span><span><i class="key k-bad"></i>Falsch (0 Punkte)</span></div>
+  <div class="chart" id="spread" data-needs-data></div>
+  <details class="tv"><summary>Als Tabelle anzeigen</summary><div class="scroll"><table id="spread-table"></table></div></details>
+</section>
+
+<section aria-labelledby="h-diff">
+  <div class="sec-head"><span class="label">Im Detail</span><h2 id="h-diff">Leichte und schwere Fragen</h2>
+    <p>Vor dem Test haben drei Modelle (Claude Sonnet, Gemini, DeepSeek) jede Frage beantwortet. <em>Zu leicht</em>: alle drei hatten volle Punkte. <em>Von keinem gelöst</em>: alle drei lagen unter 2 Punkten. Alles andere liegt <em>dazwischen</em>. Die Punkte zeigen, wie jedes Modell in jeder Gruppe abschneidet. Bei diesen drei Modellen liegen die Enden fest: 3 Punkte bei „zu leicht“ und fast 0 bei „von keinem gelöst“.</p></div>
+  <div class="legend" id="diff-legend"></div>
+  <div class="chart" id="dots" data-needs-data></div>
+  <details class="tv"><summary>Als Tabelle anzeigen</summary><div class="scroll"><table id="dots-table"></table></div></details>
+</section>
+
+<section aria-labelledby="h-changes">
+  <div class="sec-head"><span class="label">Live</span><h2 id="h-changes">Releases</h2>
+    <p>Alle drei Monate kommt ein neuer Batch mit neuen Fragen. Eine Release bewertet die Modelle auf den letzten zwei Batches; ältere Fragen scheiden aus und bleiben privat. <a href="bericht.html#h-live">So funktionieren die Releases</a></p></div>
+  <ul class="changes" id="changes"></ul>
+</section>
+
+<footer>
+  <span>Die Fragen bleiben privat, damit sie nicht in die Trainingsdaten von KI-Modellen gelangen. Diese Seite zeigt nur Durchschnittswerte.</span>
+  <span>IndustryBench-DE ist eine unabhängige deutsche Adaption von IndustryBench (<a href="https://arxiv.org/abs/2605.10267">arXiv:2605.10267</a>). Sie ist nicht mit den Autorinnen und Autoren von IndustryBench verbunden und wird nicht von ihnen unterstützt.</span>
+</footer>
+</main>
+<div id="tip" class="tip" hidden></div>
+<script src="assets/app.js"></script>
+</body>
+</html>
