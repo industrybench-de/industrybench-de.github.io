@@ -23,7 +23,8 @@
       },
       allQuestions: n => `Alle ${n} Fragen`, area: "Bereich", skill: "Fragetyp", model: "Modell", questions: "Fragen",
       counting: s => ` Gezählt: ${s}.`, allLower: n => `alle ${n} Fragen`, allCol: "Alle",
-      gradedBy: g => `Bewertet von ${g}`, and: " und ", avg: v => `${v} Punkte im Schnitt`,
+      gradedBy: g => `Bewertet von ${g}`, and: " und ",
+      reasoning: "Reasoning", effort: { off: "aus", unknown: "unbekannt" }, byDefault: "Standard des Modells", byDefaultShort: "Standard", avg: v => `${v} Punkte im Schnitt`,
       full: "ganz richtig", part: "teilweise richtig", wrong: "falsch", ofAnswers: (n, t) => `${n} von ${t} Antworten`,
       pointsShort: "Punkte", danger: "Gefährlich", batch: b => b.length > 1 ? `Batches ${b.join(" + ")}` : `Batch ${b[0]}`,
       date: d => new Date(d + "T00:00:00").toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" }),
@@ -47,7 +48,8 @@
       },
       allQuestions: n => `All ${n} questions`, area: "Area", skill: "Question type", model: "Model", questions: "Questions",
       counting: s => ` Counting ${s}.`, allLower: n => `all ${n} questions`, allCol: "All",
-      gradedBy: g => `Graded by ${g}`, and: " and ", avg: v => `${v} points on average`,
+      gradedBy: g => `Graded by ${g}`, and: " and ",
+      reasoning: "Reasoning", effort: { off: "off", unknown: "unknown" }, byDefault: "model default", byDefaultShort: "default", avg: v => `${v} points on average`,
       full: "fully right", part: "partly right", wrong: "wrong", ofAnswers: (n, t) => `${n} of ${t} answers`,
       pointsShort: "Points", danger: "Dangerous", batch: b => b.length > 1 ? `Batches ${b.join(" + ")}` : `Batch ${b[0]}`,
       date: d => new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }),
@@ -114,10 +116,15 @@
   }
   const graders = m => m.graders.join(S.and);
   const nameCell = m => `<div class="bname"><span class="nm">${esc(m.name)}</span><span class="sub">${esc(m.maker)}</span></div>`;
+  /* Reasoning effort the model answered with; "default" marks the model's own setting (nothing was sent). */
+  const effortOf = m => m.thinking ? (S.effort[m.thinking.effort] || m.thinking.effort) : "";
+  const thinkingLine = m => `${S.reasoning}: ${effortOf(m)}${m.thinking.default ? ` (${S.byDefault})` : ""}`;
+  const thinkingCell = m => m.thinking ? `${effortOf(m)}${m.thinking.default ? ` (${S.byDefaultShort})` : ""}` : "";
   function tipFor(m, a) {
     return `<strong>${esc(m.name)}</strong> · ${esc(subsetName(state.subset))} (${a.n})<br>` +
       `${S.metrics.score[0]} ${F2.format(a.score)} · ${S.metrics.safe[0]} ${F2.format(a.safe)}<br>` +
       `${S.danger} ${F1.format(a.danger)}${PCT} · ${S.metrics.rules[0]} ${F0.format(a.rules)}${PCT}<br>` +
+      (m.thinking ? `${esc(thinkingLine(m))}<br>` : "") +
       `<span style="opacity:.8">${esc(S.gradedBy(graders(m)))}</span>`;
   }
 
@@ -159,8 +166,8 @@
       const m = models().find(x => x.key === el.dataset.key);
       bindTip(el, () => tipFor(m, pick(m, state.subset)));
     });
-    $("bars-table").innerHTML = `<thead><tr><th>${S.model}</th><th class="num">${S.metrics.score[0]}</th><th class="num">${S.metrics.safe[0]}</th><th class="num">${S.danger}</th><th class="num">${S.metrics.rules[0]}</th><th class="num">${S.questions}</th></tr></thead><tbody>` +
-      rows.map(({ m, a }) => `<tr><td>${esc(m.name)}</td><td class="num">${F2.format(a.score)}</td><td class="num">${F2.format(a.safe)}</td><td class="num">${F1.format(a.danger)}${PCT}</td><td class="num">${F0.format(a.rules)}${PCT}</td><td class="num">${a.n}</td></tr>`).join("") + `</tbody>`;
+    $("bars-table").innerHTML = `<thead><tr><th>${S.model}</th><th class="num">${S.metrics.score[0]}</th><th class="num">${S.metrics.safe[0]}</th><th class="num">${S.danger}</th><th class="num">${S.metrics.rules[0]}</th><th>${S.reasoning}</th><th class="num">${S.questions}</th></tr></thead><tbody>` +
+      rows.map(({ m, a }) => `<tr><td>${esc(m.name)}</td><td class="num">${F2.format(a.score)}</td><td class="num">${F2.format(a.safe)}</td><td class="num">${F1.format(a.danger)}${PCT}</td><td class="num">${F0.format(a.rules)}${PCT}</td><td>${esc(thinkingCell(m))}</td><td class="num">${a.n}</td></tr>`).join("") + `</tbody>`;
   }
 
   function seqColor(v) {

@@ -167,6 +167,10 @@
    "graders": [
     "GPT-6 Luna"
    ],
+   "thinking": {
+    "effort": "high",
+    "default": false
+   },
    "all": {
     "n": 228,
     "score": 2.43,
@@ -242,12 +246,101 @@
    }
   },
   {
+   "key": "claude-fable",
+   "name": "Claude Fable 5.1",
+   "maker": "Anthropic",
+   "graders": [
+    "GPT-6 Luna"
+   ],
+   "thinking": {
+    "effort": "low",
+    "default": false
+   },
+   "all": {
+    "n": 228,
+    "score": 2.171,
+    "safe": 2.057,
+    "danger": 9.6,
+    "rules": 85.1
+   },
+   "domain": {
+    "chemical": {
+     "n": 59,
+     "score": 2.271,
+     "safe": 2.169,
+     "danger": 11.9,
+     "rules": 88.1
+    },
+    "electrical": {
+     "n": 59,
+     "score": 1.847,
+     "safe": 1.78,
+     "danger": 6.8,
+     "rules": 84.7
+    },
+    "energy": {
+     "n": 57,
+     "score": 2.246,
+     "safe": 2.14,
+     "danger": 8.8,
+     "rules": 86.0
+    },
+    "mechanical": {
+     "n": 53,
+     "score": 2.34,
+     "safe": 2.151,
+     "danger": 11.3,
+     "rules": 81.1
+    }
+   },
+   "capability": {
+    "fault_diagnosis": {
+     "n": 58,
+     "score": 2.397,
+     "safe": 2.138,
+     "danger": 12.1,
+     "rules": 84.5
+    },
+    "safety_compliance": {
+     "n": 61,
+     "score": 2.246,
+     "safe": 2.164,
+     "danger": 4.9,
+     "rules": 90.2
+    },
+    "selection_substitution": {
+     "n": 55,
+     "score": 1.982,
+     "safe": 1.873,
+     "danger": 12.7,
+     "rules": 76.4
+    },
+    "standards_terminology": {
+     "n": 54,
+     "score": 2.037,
+     "safe": 2.037,
+     "danger": 9.3,
+     "rules": 88.9
+    }
+   },
+   "dist": {
+    "full": 135,
+    "mostly": 45,
+    "little": 0,
+    "zero": 48
+   }
+  },
+  {
    "key": "claude-sonnet",
    "name": "Claude Sonnet 5.5",
    "maker": "Anthropic",
    "graders": [
     "GPT-6 Luna"
    ],
+   "thinking": {
+    "effort": "high",
+    "default": true
+   },
    "all": {
     "n": 228,
     "score": 2.127,
@@ -330,6 +423,10 @@
     "Claude Sonnet 5.5",
     "GPT-6 Luna"
    ],
+   "thinking": {
+    "effort": "medium",
+    "default": true
+   },
    "all": {
     "n": 228,
     "score": 1.985,
@@ -411,6 +508,10 @@
    "graders": [
     "Claude Sonnet 5.5"
    ],
+   "thinking": {
+    "effort": "medium",
+    "default": true
+   },
    "all": {
     "n": 228,
     "score": 1.684,
@@ -493,6 +594,10 @@
     "Claude Sonnet 5.5",
     "GPT-6 Luna"
    ],
+   "thinking": {
+    "effort": "high",
+    "default": true
+   },
    "all": {
     "n": 228,
     "score": 1.616,
@@ -574,6 +679,10 @@
    "graders": [
     "GPT-6 Luna"
    ],
+   "thinking": {
+    "effort": "medium",
+    "default": true
+   },
    "all": {
     "n": 228,
     "score": 1.596,
@@ -649,6 +758,264 @@
    }
   },
   {
+   "key": "qwen-27b",
+   "name": "Qwen3.8 27B",
+   "maker": "Alibaba",
+   "graders": [
+    "Claude Sonnet 5.5",
+    "GPT-6 Luna"
+   ],
+   "thinking": {
+    "effort": "low",
+    "default": false
+   },
+   "all": {
+    "n": 228,
+    "score": 1.072,
+    "safe": 0.943,
+    "danger": 26.3,
+    "rules": 53.1
+   },
+   "domain": {
+    "chemical": {
+     "n": 59,
+     "score": 1.11,
+     "safe": 0.873,
+     "danger": 40.7,
+     "rules": 49.2
+    },
+    "electrical": {
+     "n": 59,
+     "score": 1.136,
+     "safe": 0.983,
+     "danger": 16.9,
+     "rules": 54.2
+    },
+    "energy": {
+     "n": 57,
+     "score": 1.228,
+     "safe": 1.202,
+     "danger": 10.5,
+     "rules": 64.9
+    },
+    "mechanical": {
+     "n": 53,
+     "score": 0.792,
+     "safe": 0.698,
+     "danger": 37.7,
+     "rules": 43.4
+    }
+   },
+   "capability": {
+    "fault_diagnosis": {
+     "n": 58,
+     "score": 1.491,
+     "safe": 1.086,
+     "danger": 37.9,
+     "rules": 53.4
+    },
+    "safety_compliance": {
+     "n": 61,
+     "score": 1.049,
+     "safe": 0.984,
+     "danger": 23.0,
+     "rules": 54.1
+    },
+    "selection_substitution": {
+     "n": 55,
+     "score": 0.973,
+     "safe": 0.936,
+     "danger": 23.6,
+     "rules": 52.7
+    },
+    "standards_terminology": {
+     "n": 54,
+     "score": 0.75,
+     "safe": 0.75,
+     "danger": 20.4,
+     "rules": 51.9
+    }
+   },
+   "dist": {
+    "full": 20,
+    "mostly": 63,
+    "little": 45,
+    "zero": 100
+   }
+  },
+  {
+   "key": "mimo-pro",
+   "name": "MiMo-V2.6-Pro",
+   "maker": "Xiaomi",
+   "graders": [
+    "Claude Sonnet 5.5",
+    "GPT-6 Luna"
+   ],
+   "thinking": {
+    "effort": "off",
+    "default": false
+   },
+   "all": {
+    "n": 228,
+    "score": 1.114,
+    "safe": 0.954,
+    "danger": 28.9,
+    "rules": 51.3
+   },
+   "domain": {
+    "chemical": {
+     "n": 59,
+     "score": 1.22,
+     "safe": 1.025,
+     "danger": 39.0,
+     "rules": 50.8
+    },
+    "electrical": {
+     "n": 59,
+     "score": 1.042,
+     "safe": 0.864,
+     "danger": 25.4,
+     "rules": 52.5
+    },
+    "energy": {
+     "n": 57,
+     "score": 1.219,
+     "safe": 1.132,
+     "danger": 15.8,
+     "rules": 57.9
+    },
+    "mechanical": {
+     "n": 53,
+     "score": 0.962,
+     "safe": 0.783,
+     "danger": 35.8,
+     "rules": 43.4
+    }
+   },
+   "capability": {
+    "fault_diagnosis": {
+     "n": 58,
+     "score": 1.681,
+     "safe": 1.259,
+     "danger": 32.8,
+     "rules": 60.3
+    },
+    "safety_compliance": {
+     "n": 61,
+     "score": 1.156,
+     "safe": 1.033,
+     "danger": 21.3,
+     "rules": 50.8
+    },
+    "selection_substitution": {
+     "n": 55,
+     "score": 0.827,
+     "safe": 0.782,
+     "danger": 32.7,
+     "rules": 41.8
+    },
+    "standards_terminology": {
+     "n": 54,
+     "score": 0.75,
+     "safe": 0.713,
+     "danger": 29.6,
+     "rules": 51.9
+    }
+   },
+   "dist": {
+    "full": 26,
+    "mostly": 68,
+    "little": 24,
+    "zero": 110
+   }
+  },
+  {
+   "key": "nemotron-super",
+   "name": "Nemotron 3.5 Super",
+   "maker": "NVIDIA",
+   "graders": [
+    "Claude Sonnet 5.5",
+    "GPT-6 Luna"
+   ],
+   "thinking": {
+    "effort": "off",
+    "default": false
+   },
+   "all": {
+    "n": 228,
+    "score": 1.046,
+    "safe": 0.925,
+    "danger": 26.3,
+    "rules": 54.4
+   },
+   "domain": {
+    "chemical": {
+     "n": 59,
+     "score": 1.11,
+     "safe": 0.958,
+     "danger": 28.8,
+     "rules": 61.0
+    },
+    "electrical": {
+     "n": 59,
+     "score": 1.034,
+     "safe": 0.907,
+     "danger": 18.6,
+     "rules": 59.3
+    },
+    "energy": {
+     "n": 57,
+     "score": 1.105,
+     "safe": 1.0,
+     "danger": 22.8,
+     "rules": 49.1
+    },
+    "mechanical": {
+     "n": 53,
+     "score": 0.925,
+     "safe": 0.83,
+     "danger": 35.8,
+     "rules": 47.2
+    }
+   },
+   "capability": {
+    "fault_diagnosis": {
+     "n": 58,
+     "score": 1.586,
+     "safe": 1.216,
+     "danger": 25.9,
+     "rules": 65.5
+    },
+    "safety_compliance": {
+     "n": 61,
+     "score": 1.057,
+     "safe": 1.033,
+     "danger": 19.7,
+     "rules": 54.1
+    },
+    "selection_substitution": {
+     "n": 55,
+     "score": 0.818,
+     "safe": 0.745,
+     "danger": 30.9,
+     "rules": 49.1
+    },
+    "standards_terminology": {
+     "n": 54,
+     "score": 0.685,
+     "safe": 0.676,
+     "danger": 29.6,
+     "rules": 48.1
+    }
+   },
+   "dist": {
+    "full": 19,
+    "mostly": 69,
+    "little": 30,
+    "zero": 110
+   }
+  },
+  {
    "key": "minimax-flash",
    "name": "MiniMax M3.1 Flash",
    "maker": "MiniMax",
@@ -656,6 +1023,10 @@
     "Claude Sonnet 5.5",
     "GPT-6 Luna"
    ],
+   "thinking": {
+    "effort": "max",
+    "default": true
+   },
    "all": {
     "n": 228,
     "score": 0.936,
@@ -728,6 +1099,92 @@
     "mostly": 54,
     "little": 33,
     "zero": 120
+   }
+  },
+  {
+   "key": "gemma-31b",
+   "name": "Gemma 4 31B",
+   "maker": "Google",
+   "graders": [
+    "Claude Sonnet 5.5",
+    "GPT-6 Luna"
+   ],
+   "thinking": {
+    "effort": "off",
+    "default": true
+   },
+   "all": {
+    "n": 228,
+    "score": 0.932,
+    "safe": 0.868,
+    "danger": 17.5,
+    "rules": 69.7
+   },
+   "domain": {
+    "chemical": {
+     "n": 59,
+     "score": 1.0,
+     "safe": 0.873,
+     "danger": 23.7,
+     "rules": 69.5
+    },
+    "electrical": {
+     "n": 59,
+     "score": 0.915,
+     "safe": 0.881,
+     "danger": 15.3,
+     "rules": 72.9
+    },
+    "energy": {
+     "n": 57,
+     "score": 0.947,
+     "safe": 0.912,
+     "danger": 8.8,
+     "rules": 68.4
+    },
+    "mechanical": {
+     "n": 53,
+     "score": 0.858,
+     "safe": 0.802,
+     "danger": 22.6,
+     "rules": 67.9
+    }
+   },
+   "capability": {
+    "fault_diagnosis": {
+     "n": 58,
+     "score": 1.56,
+     "safe": 1.336,
+     "danger": 24.1,
+     "rules": 67.2
+    },
+    "safety_compliance": {
+     "n": 61,
+     "score": 0.926,
+     "safe": 0.926,
+     "danger": 11.5,
+     "rules": 77.0
+    },
+    "selection_substitution": {
+     "n": 55,
+     "score": 0.545,
+     "safe": 0.527,
+     "danger": 12.7,
+     "rules": 72.7
+    },
+    "standards_terminology": {
+     "n": 54,
+     "score": 0.657,
+     "safe": 0.648,
+     "danger": 22.2,
+     "rules": 61.1
+    }
+   },
+   "dist": {
+    "full": 13,
+    "mostly": 52,
+    "little": 64,
+    "zero": 99
    }
   }
  ]
