@@ -17,11 +17,6 @@
    "safety_compliance": 61,
    "selection_substitution": 55,
    "standards_terminology": 54
-  },
-  "difficulty": {
-   "discriminative": 159,
-   "trivial": 35,
-   "unsolved": 34
   }
  },
  "documents": {
@@ -239,29 +234,6 @@
      "rules": 87.0
     }
    },
-   "difficulty": {
-    "discriminative": {
-     "n": 159,
-     "score": 2.553,
-     "safe": 2.44,
-     "danger": 7.5,
-     "rules": 88.7
-    },
-    "trivial": {
-     "n": 35,
-     "score": 3.0,
-     "safe": 3.0,
-     "danger": 0.0,
-     "rules": 100.0
-    },
-    "unsolved": {
-     "n": 34,
-     "score": 1.265,
-     "safe": 1.265,
-     "danger": 14.7,
-     "rules": 73.5
-    }
-   },
    "dist": {
     "full": 158,
     "mostly": 40,
@@ -341,29 +313,6 @@
      "safe": 1.963,
      "danger": 7.4,
      "rules": 85.2
-    }
-   },
-   "difficulty": {
-    "discriminative": {
-     "n": 159,
-     "score": 2.377,
-     "safe": 2.264,
-     "danger": 6.9,
-     "rules": 88.7
-    },
-    "trivial": {
-     "n": 35,
-     "score": 3.0,
-     "safe": 2.914,
-     "danger": 2.9,
-     "rules": 97.1
-    },
-    "unsolved": {
-     "n": 34,
-     "score": 0.059,
-     "safe": 0.029,
-     "danger": 20.6,
-     "rules": 58.8
     }
    },
    "dist": {
@@ -448,29 +397,6 @@
      "rules": 77.8
     }
    },
-   "difficulty": {
-    "discriminative": {
-     "n": 159,
-     "score": 2.167,
-     "safe": 1.997,
-     "danger": 10.7,
-     "rules": 81.8
-    },
-    "trivial": {
-     "n": 35,
-     "score": 3.0,
-     "safe": 2.914,
-     "danger": 2.9,
-     "rules": 97.1
-    },
-    "unsolved": {
-     "n": 34,
-     "score": 0.088,
-     "safe": 0.059,
-     "danger": 23.5,
-     "rules": 38.2
-    }
-   },
    "dist": {
     "full": 79,
     "mostly": 89,
@@ -550,29 +476,6 @@
      "safe": 1.444,
      "danger": 13.0,
      "rules": 68.5
-    }
-   },
-   "difficulty": {
-    "discriminative": {
-     "n": 159,
-     "score": 1.748,
-     "safe": 1.667,
-     "danger": 14.5,
-     "rules": 74.8
-    },
-    "trivial": {
-     "n": 35,
-     "score": 2.657,
-     "safe": 2.571,
-     "danger": 5.7,
-     "rules": 94.3
-    },
-    "unsolved": {
-     "n": 34,
-     "score": 0.382,
-     "safe": 0.382,
-     "danger": 11.8,
-     "rules": 50.0
     }
    },
    "dist": {
@@ -657,29 +560,6 @@
      "rules": 66.7
     }
    },
-   "difficulty": {
-    "discriminative": {
-     "n": 159,
-     "score": 1.629,
-     "safe": 1.531,
-     "danger": 16.4,
-     "rules": 70.4
-    },
-    "trivial": {
-     "n": 35,
-     "score": 3.0,
-     "safe": 2.914,
-     "danger": 2.9,
-     "rules": 97.1
-    },
-    "unsolved": {
-     "n": 34,
-     "score": 0.132,
-     "safe": 0.059,
-     "danger": 23.5,
-     "rules": 38.2
-    }
-   },
    "dist": {
     "full": 58,
     "mostly": 82,
@@ -759,29 +639,6 @@
      "safe": 1.148,
      "danger": 11.1,
      "rules": 81.5
-    }
-   },
-   "difficulty": {
-    "discriminative": {
-     "n": 159,
-     "score": 1.616,
-     "safe": 1.535,
-     "danger": 13.8,
-     "rules": 74.8
-    },
-    "trivial": {
-     "n": 35,
-     "score": 2.8,
-     "safe": 2.714,
-     "danger": 2.9,
-     "rules": 97.1
-    },
-    "unsolved": {
-     "n": 34,
-     "score": 0.265,
-     "safe": 0.265,
-     "danger": 8.8,
-     "rules": 67.6
     }
    },
    "dist": {
@@ -864,29 +721,6 @@
      "safe": 0.537,
      "danger": 29.6,
      "rules": 40.7
-    }
-   },
-   "difficulty": {
-    "discriminative": {
-     "n": 159,
-     "score": 0.994,
-     "safe": 0.84,
-     "danger": 28.3,
-     "rules": 47.2
-    },
-    "trivial": {
-     "n": 35,
-     "score": 1.471,
-     "safe": 1.286,
-     "danger": 40.0,
-     "rules": 54.3
-    },
-    "unsolved": {
-     "n": 34,
-     "score": 0.118,
-     "safe": 0.118,
-     "danger": 32.4,
-     "rules": 23.5
     }
    },
    "dist": {
