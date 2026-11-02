@@ -64,6 +64,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
 section { display: grid; gap: 18px; min-width: 0; }
 .sec-head { display: grid; gap: 6px; border-top: 2px solid var(--ink); padding-top: 12px; }
 .lead { font-size: 1.12rem; }
+.meta { color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* Top bar */
 .topbar { max-width: 1040px; margin: 0 auto 24px; display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; justify-content: space-between; }

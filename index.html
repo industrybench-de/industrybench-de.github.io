@@ -20,39 +20,9 @@
 </header>
 
 <main>
-<header class="titleblock">
-  <div class="main">
-    <span class="label" id="tb-release">Release 2026-11 · Batch 1</span>
-    <h1>Wie gut kennen KI-Modelle deutsche Industrie- und Sicherheitsregeln?</h1>
-    <p class="lead"><strong>Das misst IndustryBench-DE:</strong> eine Prüfung für KI-Modelle mit Fragen aus dem Industriealltag in Deutschland, aus Maschinenbau, Elektrotechnik, Chemie und Energie.</p>
-    <p><strong>Warum?</strong> Immer mehr Ingenieurinnen und Techniker fragen KI-Assistenten um Rat. Eine falsche Antwort kann dort teuer oder gefährlich werden, etwa wenn eine KI ein Gerät für einen explosionsgefährdeten Raum freigibt, das dort nicht stehen darf. Der Benchmark zeigt deshalb drei Dinge: wie viel die Modelle über deutsche und europäische Industrieregeln wissen, ob sie diese Regeln im konkreten Fall richtig anwenden und wie oft sie etwas Unsicheres empfehlen.</p>
-  </div>
-  <div><span class="label">Fragen</span><span class="val" id="tb-questions">228</span></div>
-  <div><span class="label">Getestete Modelle</span><span class="val" id="tb-models">7</span></div>
-  <div><span class="label">Bereiche × Fragetypen</span><span class="val">4 × 4</span></div>
-  <div><span class="label">Beste Punktzahl</span><span class="val" id="tb-best">2,43 / 3</span></div>
-  <div><span class="label">Nächste Release</span><span class="val" id="tb-next">Februar 2027</span></div>
-</header>
-
-<section aria-labelledby="h-types">
-  <div class="sec-head"><span class="label">Fragetypen</span><h2 id="h-types">Vier Arten von Fragen</h2>
-    <p>Jede Frage beschreibt eine Situation aus der Praxis und gehört zu einem von vier Typen. Jeder Typ kommt in allen vier Bereichen vor.</p></div>
-  <ul class="types">
-    <li><h3>Normen &amp; Begriffe</h3><p class="small">Was bedeutet eine Kennzeichnung, eine Klasse oder ein Grenzwert, und was folgt daraus im konkreten Fall?</p>
-      <p class="eg"><span class="label">Zum Beispiel</span>Was bedeutet die Angabe auf dem Typenschild für den geplanten Einsatz?</p></li>
-    <li><h3>Auswahl &amp; Ersatz</h3><p class="small">Welches Produkt, welche Variante oder welcher Werkstoff passt zu den Einsatzbedingungen? Darf ein Teil durch ein anderes ersetzt werden?</p>
-      <p class="eg"><span class="label">Zum Beispiel</span>Welcher von zwei Motoren erfüllt die EU-Vorgaben zur Energieeffizienz?</p></li>
-    <li><h3>Sicherheit &amp; Konformität</h3><p class="small">Liegt ein Verstoß gegen eine Vorschrift vor? Welche Pflicht, Prüfung oder Schutzmaßnahme greift?</p>
-      <p class="eg"><span class="label">Zum Beispiel</span>Darf diese Pumpe in einem Raum stehen, in dem Gas explodieren kann?</p></li>
-    <li><h3>Fehlerdiagnose</h3><p class="small">Was ist die wahrscheinlichste Ursache einer Störung, und wie wird sie sicher behoben?</p>
-      <p class="eg"><span class="label">Zum Beispiel</span>Der Alarm geht los, aber die Anzeige sieht normal aus. Woran liegt es?</p></li>
-  </ul>
-  <p class="small muted">Die Beispiele zeigen nur die Art der Frage. Die echten Fragen bleiben privat, damit sie nicht in die Trainingsdaten von KI-Modellen gelangen. <a href="bericht.html#h-build">Wie eine Frage entsteht</a></p>
-</section>
-
 <section aria-labelledby="h-scores">
-  <div class="sec-head"><span class="label">Ergebnisse</span><h2 id="h-scores">Die Rangliste</h2>
-    <p>Oben lässt sich auswählen, was verglichen wird und welche Fragen zählen. Ein Modell antippen oder darauf zeigen, um alle Werte zu sehen.</p></div>
+  <div class="sec-head"><span class="label" id="tb-release">Release 2026-11 · Batch 1</span><h1 id="h-scores">Ergebnisse</h1>
+    <p class="meta"><span id="tb-questions">228</span> Fragen · <span id="tb-models">7</span> Modelle · nächste Release: <span id="tb-next">Februar 2027</span> · <a href="bericht.html">Worum es geht</a></p></div>
   <div class="controls">
     <div class="ctl"><label class="label" for="release">Release</label>
       <select id="release"><option>2026-11 · Batch 1</option></select></div>
@@ -76,7 +46,7 @@
 
 <section aria-labelledby="h-map">
   <div class="sec-head"><span class="label">Im Detail</span><h2 id="h-map">Stärken und Schwächen</h2>
-    <p>Durchschnittliche Punkte (0 bis 3) jedes Modells je Bereich oder Fragetyp. Je kräftiger das Blau, desto mehr Punkte.</p></div>
+    <p>Durchschnittliche Punkte (0 bis 3) jedes Modells je Bereich oder Fragetyp. Je kräftiger das Blau, desto mehr Punkte. <a href="bericht.html#h-types">Was die Fragetypen bedeuten</a></p></div>
   <div class="controls">
     <div class="ctl"><span class="label" id="lbl-split">Aufteilen nach</span>
       <div class="seg-ctl" role="group" aria-labelledby="lbl-split" id="split">

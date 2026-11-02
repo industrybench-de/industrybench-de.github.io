@@ -20,39 +20,9 @@
 </header>
 
 <main>
-<header class="titleblock">
-  <div class="main">
-    <span class="label" id="tb-release">Release 2026-11 · Batch 1</span>
-    <h1>How well do AI models know German industrial and safety rules?</h1>
-    <p class="lead"><strong>This is what IndustryBench-DE measures:</strong> an exam for AI models with questions from everyday industrial work in Germany, in mechanical, electrical, chemical and energy engineering.</p>
-    <p><strong>Why?</strong> More and more engineers and technicians ask AI assistants for advice. A wrong answer can be costly or dangerous there, for example when an AI approves a device for a room with explosive gas where it must not be used. So the benchmark shows three things: how much the models know about German and European industrial rules, whether they apply these rules correctly to a concrete case, and how often they recommend something unsafe.</p>
-  </div>
-  <div><span class="label">Questions</span><span class="val" id="tb-questions">228</span></div>
-  <div><span class="label">Models tested</span><span class="val" id="tb-models">7</span></div>
-  <div><span class="label">Areas × question types</span><span class="val">4 × 4</span></div>
-  <div><span class="label">Best score</span><span class="val" id="tb-best">2.43 / 3</span></div>
-  <div><span class="label">Next release</span><span class="val" id="tb-next">February 2027</span></div>
-</header>
-
-<section aria-labelledby="h-types">
-  <div class="sec-head"><span class="label">Question types</span><h2 id="h-types">Four kinds of question</h2>
-    <p>Every question describes a situation from practice and belongs to one of four types. Each type appears in all four areas.</p></div>
-  <ul class="types">
-    <li><h3>Standards &amp; terms</h3><p class="small">What does a marking, a class or a limit value mean, and what follows from it in a concrete case?</p>
-      <p class="eg"><span class="label">For example</span>What does the rating plate mean for the planned use?</p></li>
-    <li><h3>Selection &amp; substitution</h3><p class="small">Which product, variant or material suits the operating conditions? May one part be replaced by another?</p>
-      <p class="eg"><span class="label">For example</span>Which of two motors meets the EU energy-efficiency rules?</p></li>
-    <li><h3>Safety &amp; compliance</h3><p class="small">Is a rule being broken? Which duty, inspection or protective measure applies?</p>
-      <p class="eg"><span class="label">For example</span>Is this pump allowed in a room where gas could explode?</p></li>
-    <li><h3>Fault diagnosis</h3><p class="small">What is the most likely cause of a fault, and how is it fixed safely?</p>
-      <p class="eg"><span class="label">For example</span>The alarm goes off but the display looks normal. What is wrong?</p></li>
-  </ul>
-  <p class="small muted">The examples only show the kind of question. The real questions stay private so they do not end up in AI training data. <a href="report.html#h-build">How a question is built</a></p>
-</section>
-
 <section aria-labelledby="h-scores">
-  <div class="sec-head"><span class="label">Results</span><h2 id="h-scores">The leaderboard</h2>
-    <p>Pick what to compare and which questions to count. Hover over or tap a model to see all of its numbers.</p></div>
+  <div class="sec-head"><span class="label" id="tb-release">Release 2026-11 · Batch 1</span><h1 id="h-scores">Results</h1>
+    <p class="meta"><span id="tb-questions">228</span> questions · <span id="tb-models">7</span> models · next release: <span id="tb-next">February 2027</span> · <a href="report.html">What this is about</a></p></div>
   <div class="controls">
     <div class="ctl"><label class="label" for="release">Release</label>
       <select id="release"><option>2026-11 · Batch 1</option></select></div>
@@ -76,7 +46,7 @@
 
 <section aria-labelledby="h-map">
   <div class="sec-head"><span class="label">Detail</span><h2 id="h-map">Strong and weak spots</h2>
-    <p>Average points (0 to 3) for each model in each area or question type. The stronger the blue, the more points.</p></div>
+    <p>Average points (0 to 3) for each model in each area or question type. The stronger the blue, the more points. <a href="report.html#h-types">What the question types mean</a></p></div>
   <div class="controls">
     <div class="ctl"><span class="label" id="lbl-split">Split by</span>
       <div class="seg-ctl" role="group" aria-labelledby="lbl-split" id="split">

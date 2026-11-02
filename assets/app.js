@@ -126,7 +126,6 @@
     $("tb-release").textContent = `Release ${d.release} · ${S.batch(d.batches)} · ${S.date(d.date)}`;
     $("tb-questions").textContent = d.questions;
     $("tb-models").textContent = d.models.length;
-    $("tb-best").textContent = F2.format(Math.max(...d.models.map(m => m.all.score))) + " / 3";
     $("tb-next").textContent = state.index.next[LANG];
   }
 

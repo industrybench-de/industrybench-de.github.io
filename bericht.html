@@ -23,8 +23,9 @@
 <header class="titleblock">
   <div class="main">
     <span class="label">Bericht · Release <span data-fill="release">2026-11</span></span>
-    <h1>Eine Prüfung für KI-Modelle zu deutschen Industrieregeln</h1>
-    <p class="lead">Ingenieurinnen und Techniker fragen KI-Assistenten immer öfter um Rat. Sagt eine KI, etwas sei erlaubt, obwohl es verboten ist, kann jemand zu Schaden kommen. IndustryBench-DE prüft, welche Modelle die Regeln kennen und welche gefährliche Fehler machen.</p>
+    <h1>Wie gut kennen KI-Modelle deutsche Industrie- und Sicherheitsregeln?</h1>
+    <p class="lead"><strong>Das misst IndustryBench-DE:</strong> eine Prüfung für KI-Modelle mit Fragen aus dem Industriealltag in Deutschland, aus Maschinenbau, Elektrotechnik, Chemie und Energie.</p>
+    <p><strong>Warum?</strong> Immer mehr Ingenieurinnen und Techniker fragen KI-Assistenten um Rat. Eine falsche Antwort kann dort teuer oder gefährlich werden, etwa wenn eine KI ein Gerät für einen explosionsgefährdeten Raum freigibt, das dort nicht stehen darf. Der Benchmark zeigt deshalb drei Dinge: wie viel die Modelle über deutsche und europäische Industrieregeln wissen, ob sie diese Regeln im konkreten Fall richtig anwenden und wie oft sie etwas Unsicheres empfehlen.</p>
   </div>
 </header>
 
@@ -47,11 +48,27 @@
   </ol>
 </section>
 
+<section aria-labelledby="h-types">
+  <div class="sec-head"><span class="label">Fragetypen</span><h2 id="h-types">Vier Arten von Fragen</h2>
+    <p>Jede Frage beschreibt eine Situation aus der Praxis und gehört zu einem von vier Typen. Jeder Typ kommt in allen vier Bereichen vor.</p></div>
+  <ul class="types">
+    <li><h3>Normen &amp; Begriffe</h3><p class="small">Was bedeutet eine Kennzeichnung, eine Klasse oder ein Grenzwert, und was folgt daraus im konkreten Fall?</p>
+      <p class="eg"><span class="label">Zum Beispiel</span>Was bedeutet die Angabe auf dem Typenschild für den geplanten Einsatz?</p></li>
+    <li><h3>Auswahl &amp; Ersatz</h3><p class="small">Welches Produkt, welche Variante oder welcher Werkstoff passt zu den Einsatzbedingungen? Darf ein Teil durch ein anderes ersetzt werden?</p>
+      <p class="eg"><span class="label">Zum Beispiel</span>Welcher von zwei Motoren erfüllt die EU-Vorgaben zur Energieeffizienz?</p></li>
+    <li><h3>Sicherheit &amp; Konformität</h3><p class="small">Liegt ein Verstoß gegen eine Vorschrift vor? Welche Pflicht, Prüfung oder Schutzmaßnahme greift?</p>
+      <p class="eg"><span class="label">Zum Beispiel</span>Darf diese Pumpe in einem Raum stehen, in dem Gas explodieren kann?</p></li>
+    <li><h3>Fehlerdiagnose</h3><p class="small">Was ist die wahrscheinlichste Ursache einer Störung, und wie wird sie sicher behoben?</p>
+      <p class="eg"><span class="label">Zum Beispiel</span>Der Alarm geht los, aber die Anzeige sieht normal aus. Woran liegt es?</p></li>
+  </ul>
+  <p class="small muted">Die Beispiele zeigen nur die Art der Frage. Die echten Fragen bleiben privat, damit sie nicht in die Trainingsdaten von KI-Modellen gelangen. <a href="#h-build">Wie eine Frage entsteht</a></p>
+</section>
+
 <section aria-labelledby="h-data">
   <div class="sec-head"><span class="label">Umfang</span><h2 id="h-data">Aufbau des Datensatzes</h2>
     <p>Der Datensatz ist noch klein: <span data-fill="questions">228</span> Fragen aus <span data-fill="documents">42</span> Dokumenten.</p></div>
   <ul class="plain">
-    <li><strong>Raster: 4 Bereiche × 4 Fragetypen</strong><span>Maschinenbau, Elektrotechnik, Chemie und Energie, jeweils mit den Fragetypen Normen &amp; Begriffe, Auswahl &amp; Ersatz, Sicherheit &amp; Konformität und Fehlerdiagnose (<a href="./#h-types">erklärt auf der Ergebnisseite</a>). Das ergibt 16 Kombinationen. Für jede wurden bis zu 17 Fragen geschrieben, nach den Prüfungen blieben 11 bis 16. Ergebnisse für einen einzelnen Bereich oder Fragetyp beruhen deshalb auf gut 50 Fragen.</span></li>
+    <li><strong>Raster: 4 Bereiche × 4 Fragetypen</strong><span>Maschinenbau, Elektrotechnik, Chemie und Energie, jeweils mit den Fragetypen Normen &amp; Begriffe, Auswahl &amp; Ersatz, Sicherheit &amp; Konformität und Fehlerdiagnose (<a href="#h-types">oben erklärt</a>). Das ergibt 16 Kombinationen. Für jede wurden bis zu 17 Fragen geschrieben, nach den Prüfungen blieben 11 bis 16. Ergebnisse für einen einzelnen Bereich oder Fragetyp beruhen deshalb auf gut 50 Fragen.</span></li>
     <li><strong>Zwei Arten von Quellen</strong><span>Herstellerdokumente wie Betriebsanleitungen, Datenblätter und Sicherheitsdatenblätter liefern die Situationen. Regelwerke liefern die Regeln: EU-Richtlinien und -Verordnungen sowie deutsche Gesetze und Verordnungen wie die Betriebssicherheitsverordnung.</span></li>
     <li><strong>Nur Quellen, deren Nutzung erlaubt ist</strong><span>Für jede Quelle ist geprüft und dokumentiert, ob Text- und Data-Mining und die Verarbeitung durch KI erlaubt sind. Verwendet wird nur, was diese Prüfung bestanden hat. Deshalb fehlen zum Beispiel DIN- und VDE-Normen.</span></li>
     <li><strong>Produktwissen in der Frage, Regelwissen in der Antwort</strong><span>Die Modelle sehen die Quelldokumente nicht. Deshalb stehen alle nötigen Produktangaben wie Kennwerte, Kennzeichnungen oder Fehlercodes in der Frage. Geprüft wird, ob ein Modell die Regel kennt und richtig anwendet. Sonst würde man Modelle nach Produktdetails fragen, die sie gar nicht kennen können.</span></li>

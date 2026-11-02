@@ -23,8 +23,9 @@
 <header class="titleblock">
   <div class="main">
     <span class="label">Report · Release <span data-fill="release">2026-11</span></span>
-    <h1>An exam for AI models on German industrial rules</h1>
-    <p class="lead">Engineers and technicians ask AI assistants for advice more and more often. If an AI says something is allowed when it is not, someone can get hurt. IndustryBench-DE checks which models know the rules and which ones make dangerous mistakes.</p>
+    <h1>How well do AI models know German industrial and safety rules?</h1>
+    <p class="lead"><strong>This is what IndustryBench-DE measures:</strong> an exam for AI models with questions from everyday industrial work in Germany, in mechanical, electrical, chemical and energy engineering.</p>
+    <p><strong>Why?</strong> More and more engineers and technicians ask AI assistants for advice. A wrong answer can be costly or dangerous there, for example when an AI approves a device for a room with explosive gas where it must not be used. So the benchmark shows three things: how much the models know about German and European industrial rules, whether they apply these rules correctly to a concrete case, and how often they recommend something unsafe.</p>
   </div>
 </header>
 
@@ -47,11 +48,27 @@
   </ol>
 </section>
 
+<section aria-labelledby="h-types">
+  <div class="sec-head"><span class="label">Question types</span><h2 id="h-types">Four kinds of question</h2>
+    <p>Every question describes a situation from practice and belongs to one of four types. Each type appears in all four areas.</p></div>
+  <ul class="types">
+    <li><h3>Standards &amp; terms</h3><p class="small">What does a marking, a class or a limit value mean, and what follows from it in a concrete case?</p>
+      <p class="eg"><span class="label">For example</span>What does the rating plate mean for the planned use?</p></li>
+    <li><h3>Selection &amp; substitution</h3><p class="small">Which product, variant or material suits the operating conditions? May one part be replaced by another?</p>
+      <p class="eg"><span class="label">For example</span>Which of two motors meets the EU energy-efficiency rules?</p></li>
+    <li><h3>Safety &amp; compliance</h3><p class="small">Is a rule being broken? Which duty, inspection or protective measure applies?</p>
+      <p class="eg"><span class="label">For example</span>Is this pump allowed in a room where gas could explode?</p></li>
+    <li><h3>Fault diagnosis</h3><p class="small">What is the most likely cause of a fault, and how is it fixed safely?</p>
+      <p class="eg"><span class="label">For example</span>The alarm goes off but the display looks normal. What is wrong?</p></li>
+  </ul>
+  <p class="small muted">The examples only show the kind of question. The real questions stay private so they do not end up in AI training data. <a href="#h-build">How a question is built</a></p>
+</section>
+
 <section aria-labelledby="h-data">
   <div class="sec-head"><span class="label">Scope</span><h2 id="h-data">How the dataset is built</h2>
     <p>The dataset is still small: <span data-fill="questions">228</span> questions from <span data-fill="documents">42</span> documents.</p></div>
   <ul class="plain">
-    <li><strong>Grid: 4 areas × 4 question types</strong><span>Mechanical, electrical, chemical and energy, each with the question types standards &amp; terms, selection &amp; substitution, safety &amp; compliance and fault diagnosis (<a href="./#h-types">explained on the results page</a>). That makes 16 combinations. Up to 17 questions were written for each; after the checks 11 to 16 remained. Results for a single area or question type therefore rest on just over 50 questions.</span></li>
+    <li><strong>Grid: 4 areas × 4 question types</strong><span>Mechanical, electrical, chemical and energy, each with the question types standards &amp; terms, selection &amp; substitution, safety &amp; compliance and fault diagnosis (<a href="#h-types">explained above</a>). That makes 16 combinations. Up to 17 questions were written for each; after the checks 11 to 16 remained. Results for a single area or question type therefore rest on just over 50 questions.</span></li>
     <li><strong>Two kinds of source</strong><span>Manufacturer documents such as operating manuals, data sheets and safety data sheets give the situations. Rule books give the rules: EU directives and regulations and German laws and ordinances such as the Ordinance on Industrial Safety and Health.</span></li>
     <li><strong>Only sources that may be used</strong><span>For every source it is checked and documented whether text and data mining and AI processing are allowed. Only sources that pass this check are used. That is why DIN and VDE standards, for example, are missing.</span></li>
     <li><strong>Product knowledge in the question, rule knowledge in the answer</strong><span>The models do not see the source documents. So every product detail they need, such as ratings, markings or fault codes, is written into the question. What is tested is whether a model knows the rule and applies it correctly. Otherwise models would be asked about product details they cannot know.</span></li>
