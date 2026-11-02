@@ -15,5 +15,9 @@ IndustryBench-DE is an independent German adaptation of IndustryBench
 ([arXiv:2605.10267](https://arxiv.org/abs/2605.10267)). It is not affiliated with or endorsed
 by the IndustryBench authors.
 
+After changing `assets/app.js` or `assets/site.css`, update their `?v=` in all four pages (the
+first 8 hex digits of the file's SHA-256). GitHub Pages lets browsers cache files for 10 minutes;
+without a new version a browser can combine a new page with an old script.
+
 Fonts: Barlow Condensed, Source Sans 3 and IBM Plex Mono, self-hosted under the SIL Open Font
 License 1.1 (see `assets/fonts/`).
