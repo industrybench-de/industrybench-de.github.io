@@ -3,7 +3,7 @@
 **https://industrybench-de.github.io/** (German and English)
 
 How well do AI models know German and EU industrial and safety rules? This site shows the
-results of IndustryBench-DE: a leaderboard per release and a short report on how the benchmark
+results of IndustryBench-DE: the current leaderboard and a short report on how the benchmark
 works.
 
 This repository holds only the website. The questions stay private so they do not end up in AI
@@ -11,8 +11,8 @@ training data; `data/` contains averages only.
 
 ## Updating
 
-- **New results:** replace `data/<release>.json` (written by the private pipeline) and add the
-  release to `data/releases.json`.
+- **New results:** write `data/<release>.json` with the private pipeline. For a new file, point
+  `current` in `data/releases.json` at it. The site shows only the current results.
 - **Changed `assets/app.js` or `assets/site.css`:** update its `?v=` in the four HTML pages to the
   first 8 hex digits of the file's SHA-256, so browsers do not mix a cached old file with a new
   page.

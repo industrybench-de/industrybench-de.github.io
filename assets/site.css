@@ -147,12 +147,6 @@ details.tv[open] summary { margin-bottom: 8px; }
 @media (max-width: 560px) { .srow { grid-template-columns: 1fr; gap: 4px; } }
 
 /* Release log */
-.changes { list-style: none; display: grid; gap: 14px; }
-.changes > li { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 12px; border-top: 1px solid var(--rule); padding-top: 10px; }
-.changes .rel { display: grid; gap: 2px; align-content: start; }
-.changes .rel strong { font: 600 1.15rem var(--f-display); }
-.changes ul { list-style: square; padding-left: 1.1em; display: grid; gap: 2px; }
-@media (max-width: 560px) { .changes > li { grid-template-columns: 1fr; gap: 4px; } }
 
 /* Report: steps, lists, scale, warning row */
 .steps { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border: 1px solid var(--rule); background: var(--sheet); }

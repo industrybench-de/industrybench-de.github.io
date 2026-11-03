@@ -26,8 +26,7 @@
       gradedBy: g => `Bewertet von ${g}`, and: " und ",
       reasoning: "Reasoning", effort: { off: "aus", unknown: "unbekannt" }, byDefault: "Standard des Modells", byDefaultShort: "Standard", avg: v => `${v} Punkte im Schnitt`,
       full: "ganz richtig", part: "teilweise richtig", wrong: "falsch", ofAnswers: (n, t) => `${n} von ${t} Antworten`,
-      pointsShort: "Punkte", danger: "Gefährlich", batch: b => b.length > 1 ? `Batches ${b.join(" + ")}` : `Batch ${b[0]}`,
-      date: d => new Date(d + "T00:00:00").toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" }),
+      pointsShort: "Punkte", danger: "Gefährlich",
       loadErr: "Die Ergebnisse konnten nicht angezeigt werden. Bitte die Seite neu laden.",
       stages: { generate: "Geschrieben", filter: "Zitatprüfung", verify: "Inhaltsprüfung", calibrate: "Schwierigkeitstest" },
       reasons: { SOURCE_REFERENCE: "verweist auf Material, das der Prüfling nicht sieht", QUESTION_LENGTH: "zu lang oder zu kurz",
@@ -51,8 +50,7 @@
       gradedBy: g => `Graded by ${g}`, and: " and ",
       reasoning: "Reasoning", effort: { off: "off", unknown: "unknown" }, byDefault: "model default", byDefaultShort: "default", avg: v => `${v} points on average`,
       full: "fully right", part: "partly right", wrong: "wrong", ofAnswers: (n, t) => `${n} of ${t} answers`,
-      pointsShort: "Points", danger: "Dangerous", batch: b => b.length > 1 ? `Batches ${b.join(" + ")}` : `Batch ${b[0]}`,
-      date: d => new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }),
+      pointsShort: "Points", danger: "Dangerous",
       loadErr: "The results could not be shown. Please reload the page.",
       stages: { generate: "Written", filter: "Quote check", verify: "Content check", calibrate: "Difficulty test" },
       reasons: { SOURCE_REFERENCE: "points at material the test-taker cannot see", QUESTION_LENGTH: "too long or too short",
@@ -70,7 +68,7 @@
     rules: { max: 100, ticks: [0, 25, 50, 75, 100], better: "high", fmt: v => F0.format(v) + PCT, tick: t => t + PCT },
   };
   const $ = id => document.getElementById(id);
-  const state = { metric: "score", subset: "all", split: "domain", data: null, index: null };
+  const state = { metric: "score", subset: "all", split: "domain", data: null };
 
   async function load(path) {
     const r = await fetch(ROOT + path, { cache: "no-cache" });
@@ -130,10 +128,8 @@
 
   function renderTitle() {
     const d = state.data;
-    $("tb-release").textContent = `Release ${d.release} · ${S.batch(d.batches)} · ${S.date(d.date)}`;
     $("tb-questions").textContent = d.questions;
     $("tb-models").textContent = d.models.length;
-    $("tb-next").textContent = state.index.next[LANG];
   }
 
   function renderSubsetOptions() {
@@ -210,28 +206,11 @@
       order.map(m => `<tr><td>${esc(m.name)}</td><td class="num">${m.dist.full}</td><td class="num">${m.dist.mostly + m.dist.little}</td><td class="num">${m.dist.zero}</td></tr>`).join("") + `</tbody>`;
   }
 
-  function renderChanges() {
-    $("changes").innerHTML = state.index.releases.map(r => `<li><div class="rel"><strong>${esc(r.id)}</strong><span class="small muted">${esc(S.date(r.date))}</span></div>
-      <ul>${r.changes[LANG].map(t => `<li>${esc(t)}</li>`).join("")}</ul></li>`).join("");
-  }
-
   function renderResults() {
     renderTitle(); renderSubsetOptions(); renderBars(); renderHeat(); renderSpread();
   }
 
-  async function showRelease(id) {
-    const rel = state.index.releases.find(r => r.id === id) || state.index.releases.find(r => r.id === state.index.latest);
-    state.data = await load(rel.file);
-    $("release").value = rel.id;
-    renderResults();
-  }
-
   async function initResults() {
-    state.index = await load("data/releases.json");
-    const sel = $("release");
-    sel.innerHTML = state.index.releases.map(r => `<option value="${esc(r.id)}">${esc(r.id)} · ${esc(S.batch(r.batches))}</option>`).join("");
-    sel.addEventListener("change", () => { location.hash = sel.value; });
-    addEventListener("hashchange", () => showRelease(location.hash.slice(1)).catch(fail));
     $("metric").addEventListener("click", e => {
       const b = e.target.closest("button"); if (!b) return;
       state.metric = b.dataset.m; press("metric", "m", state.metric); renderBars();
@@ -241,8 +220,8 @@
       const b = e.target.closest("button"); if (!b) return;
       state.split = b.dataset.s; press("split", "s", state.split); renderHeat();
     });
-    renderChanges();
-    await showRelease(location.hash.slice(1));
+    state.data = await load((await load("data/releases.json")).current);
+    renderResults();
   }
 
   /* ---------- Report page ---------- */
@@ -268,10 +247,9 @@
   async function initReport() {
     initExample();
     const [index, labels] = await Promise.all([load("data/releases.json"), load("data/labels.json")]);
-    const latest = index.releases.find(r => r.id === index.latest);
-    const d = await load(latest.file);
+    const d = await load(index.current);
     document.querySelectorAll("[data-fill]").forEach(el => {
-      const v = { questions: d.questions, release: d.release, rulebooks: d.rule_books.length,
+      const v = { questions: d.questions, rulebooks: d.rule_books.length,
                   documents: Object.values(d.documents).reduce((a, b) => a + b, 0) }[el.dataset.fill];
       if (v !== undefined) el.textContent = v;
     });

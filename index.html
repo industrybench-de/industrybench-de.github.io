@@ -7,7 +7,7 @@
 <meta name="description" content="Wie gut kennen KI-Modelle deutsche Industrie- und Sicherheitsregeln? IndustryBench-DE prüft Fachwissen, richtige Anwendung und unsichere Empfehlungen in Maschinenbau, Elektrotechnik, Chemie und Energie.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="en/">
-<link rel="stylesheet" href="assets/site.css?v=4842b046">
+<link rel="stylesheet" href="assets/site.css?v=83cd7c19">
 </head>
 <body data-page="results" data-root="">
 <header class="topbar">
@@ -21,12 +21,11 @@
 
 <main>
 <section aria-labelledby="h-scores">
-  <div class="sec-head"><span class="label" id="tb-release">Release 2026-11 · Batch 1</span><h1 id="h-scores">Ergebnisse</h1>
+  <div class="sec-head"><span class="label">Erste Release · vorläufig</span><h1 id="h-scores">Ergebnisse</h1>
     <p>Der Benchmark prüft, ob KI-Modelle industrielle Fragen fachlich korrekt beantworten und dabei deutsche und europäische Sicherheitsvorschriften und technische Vorgaben einhalten. Er bewertet auch, ob ein Modell etwas Unzulässiges oder Gefährliches empfiehlt. Der Fokus liegt auf vier Bereichen: Maschinenbau, Elektrotechnik, Chemie und Energie.</p>
-    <p class="meta"><span id="tb-questions">228</span> Fragen · <span id="tb-models">7</span> Modelle · nächste Release: <span id="tb-next">Februar 2027</span> · <a href="bericht.html">Worum es geht</a></p></div>
+    <p>Dies ist die erste, vorläufige Release. Der Benchmark ist dynamisch: Der Datensatz wird in regelmäßigen Abständen um neue Fragen erweitert, und neue Modelle werden laufend getestet.</p>
+    <p class="meta"><span id="tb-questions">228</span> Fragen · <span id="tb-models">12</span> Modelle · <a href="bericht.html">Worum es geht</a></p></div>
   <div class="controls">
-    <div class="ctl"><label class="label" for="release">Release</label>
-      <select id="release"><option>2026-11 · Batch 1</option></select></div>
     <div class="ctl"><span class="label" id="lbl-metric">Vergleichen nach</span>
       <div class="seg-ctl" role="group" aria-labelledby="lbl-metric" id="metric">
         <button type="button" id="m-score" data-m="score" aria-pressed="true">Punkte</button>
@@ -67,18 +66,12 @@
   <details class="tv"><summary>Als Tabelle anzeigen</summary><div class="scroll"><table id="spread-table"></table></div></details>
 </section>
 
-<section aria-labelledby="h-changes">
-  <div class="sec-head"><span class="label">Live</span><h2 id="h-changes">Releases</h2>
-    <p>Alle drei Monate kommt ein neuer Batch mit neuen Fragen. Eine Release bewertet die Modelle auf den letzten zwei Batches; ältere Fragen scheiden aus und bleiben privat. <a href="bericht.html#h-live">So funktionieren die Releases</a></p></div>
-  <ul class="changes" id="changes"></ul>
-</section>
-
 <footer>
   <span>Die Fragen bleiben privat, damit sie nicht in die Trainingsdaten von KI-Modellen gelangen. Diese Seite zeigt nur Durchschnittswerte.</span>
   <span>IndustryBench-DE ist eine unabhängige deutsche Adaption von IndustryBench (<a href="https://arxiv.org/abs/2605.10267">arXiv:2605.10267</a>). Sie ist nicht mit den Autorinnen und Autoren von IndustryBench verbunden und wird nicht von ihnen unterstützt.</span>
 </footer>
 </main>
 <div id="tip" class="tip" hidden></div>
-<script src="assets/app.js?v=46c40bb9"></script>
+<script src="assets/app.js?v=d78f97bc"></script>
 </body>
 </html>

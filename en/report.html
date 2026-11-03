@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>IndustryBench-DE Live · Report</title>
-<meta name="description" content="What IndustryBench-DE is, why it exists and how it works: sources, questions, checks, grading and quarterly releases.">
+<meta name="description" content="What IndustryBench-DE is, why it exists and how it works: sources, questions, checks and grading.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="de" href="../bericht.html">
-<link rel="stylesheet" href="../assets/site.css?v=4842b046">
+<link rel="stylesheet" href="../assets/site.css?v=83cd7c19">
 </head>
 <body data-page="report" data-root="../">
 <header class="topbar">
@@ -22,7 +22,7 @@
 <main>
 <header class="titleblock">
   <div class="main">
-    <span class="label">Report · Release <span data-fill="release">2026-11</span></span>
+    <span class="label">Report</span>
     <h1>How well do AI models know German industrial and safety rules?</h1>
     <p class="lead">The benchmark tests whether AI models answer industrial questions correctly while complying with German and European safety regulations and technical requirements, such as the Ordinance on Industrial Safety and Health (BetrSichV), the Hazardous Substances Ordinance (GefStoffV) or the EU Low Voltage Directive. It also checks whether a model recommends something that is not allowed or dangerous. It focuses on four areas: mechanical, electrical, chemical and energy engineering.</p>
     <p>Similar benchmarks already exist for other countries, for example for Chinese industrial standards. IndustryBench-DE focuses on German and European regulations and uses its own questions, based on freely usable rule books.</p>
@@ -137,10 +137,10 @@
     <div class="flow-in">
       <div class="fbox prod"><span class="label">Gives the situation</span><h3>1 section of a manufacturer document</h3>
         <p class="small">A section that a model (DeepSeek) tagged as fitting the question type. The program takes turns across products and uses each section at most twice. Selection questions get a second section from another product, so the question can compare the two.</p>
-        <span class="fig">Batch 1: 346 product sections, 279 usable</span></div>
+        <span class="fig">346 product sections, 279 usable</span></div>
       <div class="fbox law"><span class="label">Gives the rule</span><h3>3 sections of the rule books</h3>
         <p class="small">Each manufacturer document lists the rule books that apply to it. The program picks the three sections of those rule books that are closest in meaning to the product section.</p>
-        <span class="fig">Batch 1: 1,050 sections of German and EU law</span></div>
+        <span class="fig">1,050 sections of German and EU law</span></div>
     </div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
     <div class="fbox"><span class="label">Writes</span><h3>Claude Opus</h3>
@@ -193,14 +193,8 @@
 </section>
 
 <section aria-labelledby="h-live">
-  <div class="sec-head"><span class="label">Live</span><h2 id="h-live">How releases work</h2>
-    <p>Questions that stay public for a long time can end up in the training data of new models. So new questions are added regularly.</p></div>
-  <ul class="plain">
-    <li><strong>A new batch every three months</strong><span>A batch is a new round of questions from new sources, made with the same four steps.</span></li>
-    <li><strong>A release scores the last two batches</strong><span>A release is one state of the leaderboard. With two batches the results rest on more questions. The first release, <span data-fill="release">2026-11</span>, contains batch 1 only.</span></li>
-    <li><strong>Older batches retire and stay private</strong><span>Retired questions are not published.</span></li>
-    <li><strong>Next release: February 2027</strong><span>On the results page every release can be viewed on its own.</span></li>
-  </ul>
+  <div class="sec-head"><span class="label">Live</span><h2 id="h-live">A dynamic benchmark</h2>
+    <p>Questions that stay public for a long time can end up in the training data of new models. That is why IndustryBench-DE is dynamic: new questions are added to the dataset at regular intervals, and new models are tested on an ongoing basis. The current results are the first, preliminary release.</p></div>
 </section>
 
 <footer>
@@ -208,6 +202,6 @@
   <span>IndustryBench-DE is an independent German adaptation of IndustryBench (<a href="https://arxiv.org/abs/2605.10267">arXiv:2605.10267</a>). It is not affiliated with or endorsed by the IndustryBench authors.</span>
 </footer>
 </main>
-<script src="../assets/app.js?v=46c40bb9"></script>
+<script src="../assets/app.js?v=d78f97bc"></script>
 </body>
 </html>

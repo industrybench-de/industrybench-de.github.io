@@ -7,7 +7,7 @@
 <meta name="description" content="How well do AI models know German industrial and safety rules? IndustryBench-DE tests knowledge, correct application and unsafe advice in mechanical, electrical, chemical and energy engineering.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="de" href="../">
-<link rel="stylesheet" href="../assets/site.css?v=4842b046">
+<link rel="stylesheet" href="../assets/site.css?v=83cd7c19">
 </head>
 <body data-page="results" data-root="../">
 <header class="topbar">
@@ -21,12 +21,11 @@
 
 <main>
 <section aria-labelledby="h-scores">
-  <div class="sec-head"><span class="label" id="tb-release">Release 2026-11 · Batch 1</span><h1 id="h-scores">Results</h1>
+  <div class="sec-head"><span class="label">First release · preliminary</span><h1 id="h-scores">Results</h1>
     <p>The benchmark tests whether AI models answer industrial questions correctly while complying with German and European safety regulations and technical requirements. It also checks whether a model recommends something that is not allowed or dangerous. It focuses on four areas: mechanical, electrical, chemical and energy engineering.</p>
-    <p class="meta"><span id="tb-questions">228</span> questions · <span id="tb-models">7</span> models · next release: <span id="tb-next">February 2027</span> · <a href="report.html">What this is about</a></p></div>
+    <p>This is the first, preliminary release. The benchmark is dynamic: new questions are added to the dataset at regular intervals, and new models are tested on an ongoing basis.</p>
+    <p class="meta"><span id="tb-questions">228</span> questions · <span id="tb-models">12</span> models · <a href="report.html">What this is about</a></p></div>
   <div class="controls">
-    <div class="ctl"><label class="label" for="release">Release</label>
-      <select id="release"><option>2026-11 · Batch 1</option></select></div>
     <div class="ctl"><span class="label" id="lbl-metric">Compare by</span>
       <div class="seg-ctl" role="group" aria-labelledby="lbl-metric" id="metric">
         <button type="button" id="m-score" data-m="score" aria-pressed="true">Points</button>
@@ -67,18 +66,12 @@
   <details class="tv"><summary>Show as a table</summary><div class="scroll"><table id="spread-table"></table></div></details>
 </section>
 
-<section aria-labelledby="h-changes">
-  <div class="sec-head"><span class="label">Live</span><h2 id="h-changes">Releases</h2>
-    <p>Every three months a new batch of questions is added. A release scores the models on the last two batches; older questions retire and stay private. <a href="report.html#h-live">How releases work</a></p></div>
-  <ul class="changes" id="changes"></ul>
-</section>
-
 <footer>
   <span>The questions stay private so they do not end up in AI training data. This page shows averages only.</span>
   <span>IndustryBench-DE is an independent German adaptation of IndustryBench (<a href="https://arxiv.org/abs/2605.10267">arXiv:2605.10267</a>). It is not affiliated with or endorsed by the IndustryBench authors.</span>
 </footer>
 </main>
 <div id="tip" class="tip" hidden></div>
-<script src="../assets/app.js?v=46c40bb9"></script>
+<script src="../assets/app.js?v=d78f97bc"></script>
 </body>
 </html>

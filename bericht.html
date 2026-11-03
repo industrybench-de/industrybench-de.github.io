@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>IndustryBench-DE Live · Bericht</title>
-<meta name="description" content="Was IndustryBench-DE ist, warum es ihn gibt und wie er funktioniert: Quellen, Fragen, Prüfung, Bewertung und vierteljährliche Releases.">
+<meta name="description" content="Was IndustryBench-DE ist, warum es ihn gibt und wie er funktioniert: Quellen, Fragen, Prüfung und Bewertung.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="en/report.html">
-<link rel="stylesheet" href="assets/site.css?v=4842b046">
+<link rel="stylesheet" href="assets/site.css?v=83cd7c19">
 </head>
 <body data-page="report" data-root="">
 <header class="topbar">
@@ -22,7 +22,7 @@
 <main>
 <header class="titleblock">
   <div class="main">
-    <span class="label">Bericht · Release <span data-fill="release">2026-11</span></span>
+    <span class="label">Bericht</span>
     <h1>Wie gut kennen KI-Modelle deutsche Industrie- und Sicherheitsregeln?</h1>
     <p class="lead">Der Benchmark prüft, ob KI-Modelle industrielle Fragen fachlich korrekt beantworten und dabei deutsche und europäische Sicherheitsvorschriften und technische Vorgaben einhalten, etwa die Betriebssicherheitsverordnung, die Gefahrstoffverordnung oder die EU-Niederspannungsrichtlinie. Er bewertet auch, ob ein Modell etwas Unzulässiges oder Gefährliches empfiehlt. Der Fokus liegt auf vier Bereichen: Maschinenbau, Elektrotechnik, Chemie und Energie.</p>
     <p>Ähnliche Benchmarks gibt es bereits für andere Länder, zum Beispiel für chinesische Industriestandards. IndustryBench-DE ist speziell auf deutsche und europäische Vorschriften ausgerichtet und verwendet eigene Fragen auf Basis frei nutzbarer Regelwerke.</p>
@@ -137,10 +137,10 @@
     <div class="flow-in">
       <div class="fbox prod"><span class="label">Liefert die Situation</span><h3>1 Abschnitt aus einem Herstellerdokument</h3>
         <p class="small">Ein Abschnitt, den ein Modell (DeepSeek) als passend zum Fragetyp markiert hat. Das Programm wechselt reihum zwischen den Produkten und nutzt jeden Abschnitt höchstens zweimal. Fragen zu Auswahl &amp; Ersatz bekommen einen zweiten Abschnitt von einem anderen Produkt, damit die Frage beide vergleichen kann.</p>
-        <span class="fig">Batch 1: 346 Produktabschnitte, davon 279 nutzbar</span></div>
+        <span class="fig">346 Produktabschnitte, davon 279 nutzbar</span></div>
       <div class="fbox law"><span class="label">Liefert die Regel</span><h3>3 Abschnitte aus den Regelwerken</h3>
         <p class="small">Zu jedem Herstellerdokument ist festgelegt, welche Regelwerke dafür gelten. Das Programm sucht in diesen Regelwerken die drei Abschnitte, die dem Produktabschnitt inhaltlich am nächsten sind.</p>
-        <span class="fig">Batch 1: 1.050 Abschnitte aus deutschem und EU-Recht</span></div>
+        <span class="fig">1.050 Abschnitte aus deutschem und EU-Recht</span></div>
     </div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
     <div class="fbox"><span class="label">Schreibt</span><h3>Claude Opus</h3>
@@ -193,14 +193,8 @@
 </section>
 
 <section aria-labelledby="h-live">
-  <div class="sec-head"><span class="label">Live</span><h2 id="h-live">Wie die Releases funktionieren</h2>
-    <p>Fragen, die lange öffentlich bekannt sind, können in die Trainingsdaten neuer Modelle geraten. Darum kommen regelmäßig neue Fragen dazu.</p></div>
-  <ul class="plain">
-    <li><strong>Alle drei Monate ein neuer Batch</strong><span>Ein Batch ist eine neue Runde Fragen aus neuen Quellen, entstanden nach denselben vier Schritten.</span></li>
-    <li><strong>Eine Release bewertet die letzten zwei Batches</strong><span>Eine Release ist ein Stand der Rangliste. Mit zwei Batches stützen sich die Ergebnisse auf mehr Fragen. Die erste Release, <span data-fill="release">2026-11</span>, enthält nur Batch 1.</span></li>
-    <li><strong>Ältere Batches scheiden aus und bleiben privat</strong><span>Ausgeschiedene Fragen werden nicht veröffentlicht.</span></li>
-    <li><strong>Nächste Release: Februar 2027</strong><span>Auf der Ergebnisseite lässt sich jede Release einzeln aufrufen.</span></li>
-  </ul>
+  <div class="sec-head"><span class="label">Live</span><h2 id="h-live">Ein dynamischer Benchmark</h2>
+    <p>Fragen, die lange öffentlich bekannt sind, können in die Trainingsdaten neuer Modelle geraten. Darum ist IndustryBench-DE dynamisch: Der Datensatz wird in regelmäßigen Abständen um neue Fragen erweitert, und neue Modelle werden laufend getestet. Die aktuellen Ergebnisse sind die erste, vorläufige Release.</p></div>
 </section>
 
 <footer>
@@ -208,6 +202,6 @@
   <span>IndustryBench-DE ist eine unabhängige deutsche Adaption von IndustryBench (<a href="https://arxiv.org/abs/2605.10267">arXiv:2605.10267</a>). Sie ist nicht mit den Autorinnen und Autoren von IndustryBench verbunden und wird nicht von ihnen unterstützt.</span>
 </footer>
 </main>
-<script src="assets/app.js?v=46c40bb9"></script>
+<script src="assets/app.js?v=d78f97bc"></script>
 </body>
 </html>
